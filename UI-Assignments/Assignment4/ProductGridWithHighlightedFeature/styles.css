@@ -1,0 +1,25 @@
+body{
+    background-color: ;
+}
+.container{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    padding:50px;
+    row-gap: 10px;
+    column-gap: 10px;
+    background-color:rgb(250, 242, 135);
+}
+.feature-products{
+    grid-column-start: 1;
+    grid-column-end:3;
+    background-color: rgb(176, 219, 120);
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 15px;
+}
+.products{
+    background-color: rgb(201, 223, 173);
+    padding:10px;
+    border-radius: 15px;
+}

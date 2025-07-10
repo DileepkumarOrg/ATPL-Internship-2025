@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+#container{
+    background-color: aliceblue;
+    width: 300px;
+    height: 300px;
+    color: black;
+    font-size: 30px;
+}
+
+#buttonDiv{
+    background-color: aliceblue;
+}
+
+.myButtons{
+    background-color: aqua;
+    padding: 10px;
+}

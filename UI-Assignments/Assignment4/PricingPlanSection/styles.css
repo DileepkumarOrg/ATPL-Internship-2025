@@ -1,0 +1,41 @@
+
+body{
+    background-color: rgb(209, 146, 135);
+}
+h1{
+    text-align: center;
+}
+.container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    background-color: rgb(231, 11, 11);
+    padding:50px;
+    grid-gap:10px;
+    }
+.cards{
+    background-color: rgb(230, 222, 222);
+    border:1px solid black;
+    text-align: center;
+    padding-bottom:5px;
+    border-radius: 5px;
+            
+    }
+.button{
+    background-color: lightgreen;
+    padding:8px;
+    border:1px solid green;
+    margin-bottom: 10px;
+    color:black;
+    border-radius: 5px;
+    width: 150px;
+            
+    }
+p{
+    font-size:30px;
+    color:rgb(85, 28, 218);
+    }
+
+.button:hover{
+    background-color: tomato;
+    padding: 10px;
+}

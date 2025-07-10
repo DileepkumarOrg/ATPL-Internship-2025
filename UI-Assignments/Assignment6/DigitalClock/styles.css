@@ -1,0 +1,38 @@
+body{
+    background-color:black;
+    height: 100%;
+    width: 95%;
+
+}
+#button-div{
+    padding: 20px;
+    margin: 0;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    right: 100px;
+}
+
+#container{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+p{
+    font-size: 300px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+button{
+    position: absolute;
+    direction: left;
+    background-color: rgb(53, 51, 51);
+    padding: 5px;
+    width: 100px;
+    border-radius: 20px;
+    color: white;
+}

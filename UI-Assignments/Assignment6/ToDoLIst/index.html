@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+    <div id="task-list"> </div> 
+    <div id="newTaskAdding-div">
+        
+        <label for="newTaskAdding">Task: </label>
+        <input name="newTaskAdding" id="newTaskAdding" placeholder="Enter Task Name" >
+    </div>
+    <div id="button-div">
+        <button class="buttons" onclick="addTask()">Add</button>
+        <button class="buttons" onclick="deleteSelectedTask()" style="background-color: brown;">Delete</button>
+        <button class="buttons" onclick="doneSelectedTasks()"  style="background-color: lightgreen;">Done</button>
+        <button class="buttons" onclick="notDoneSelectedTasks()" style="background-color: tomato;">Not Done</button>
+        <button class="buttons" onclick="displayAllTasks()">Display</button>
+    </div>
+    <div id="allTasks"></div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+div{
+    background-color: rgb(105, 179, 223);
+    display:flex;
+    flex-wrap:wrap;
+    padding:50px;
+    align-items: space-evenly;
+    box-sizing: border-box;
+    
+  }
+.cards{
+
+    background-color: rgb(221, 106, 206);
+    color: white;
+    font-size:20px;
+    width:400px;
+    display: flex;
+    text-align:center;
+    justify-content: center;
+    height:100px;
+    margin:10px;
+    border-radius: 15px;
+  }

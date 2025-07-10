@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <table>
+                <tr><td ><p><b>Subject Name </b></p></td><td><p><b>Marks</b></p></td></tr>
+                <tr><td>Maths</td><td>: <input type="number" id="maths" placeholder="Enter Maths Marks" required max="100"> </td></tr>
+                <tr><td>Science</td><td>: <input type="number" id="science" placeholder="Enter Science Marks" required max="100"> </td></tr>
+                <tr><td>Physics</td><td>: <input type="number" id="Physics" placeholder="Enter Physics Marks" required max="100"> </td></tr>
+                <tr><td>Chemistry</td><td>: <input type="number" id="Chemistry" placeholder="Enter Chemistry Marks" required max="100"> </td></tr>
+                <tr><td>Social</td><td>: <input type="number" id="Social" placeholder="Enter Social Marks" required max="100"> </td></tr>
+            </table>
+        </div>
+        
+        <button type="submit" onclick="grades()">Submit</button>
+        <h2 id="result">Result : </h2>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
