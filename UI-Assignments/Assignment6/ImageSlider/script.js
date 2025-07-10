@@ -1,38 +1,51 @@
-const slides = document.getElementById("slides");
-const slideImages = slides.querySelectorAll("img");
-const totalSlides = slideImages.length;
+const slider = document.getElementById('slider');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
 
-let index = 0;
-let intervalId = null;
+let currentIndex = 0;
+const totalImages = slider.children.length;
+let interval;
 
-function showSlide(i) {
-  // Ensure index stays within range
-  index = (i + totalSlides) % totalSlides;
-  slides.style.transform = `translateX(${-index * 600}px)`;
+function showSlide(index) {
+    if (index < 0) {
+        currentIndex = totalImages - 1;
+    } else if (index >= totalImages) {
+        currentIndex = 0;
+    } else {
+        currentIndex = index;
+    }
+    slider.style.transform = `translateX(-${currentIndex * 600}px)`;
 }
 
-document.getElementById("prev").addEventListener("click", () => {
-  showSlide(index - 1);
-});
+function nextSlide() {
+    showSlide(currentIndex + 1);
+}
 
-document.getElementById("next").addEventListener("click", () => {
-  showSlide(index + 1);
-});
+function prevSlide() {
+    showSlide(currentIndex - 1);
+}
 
 function startAutoPlay() {
-  intervalId = setInterval(() => {
-    showSlide(index + 1);
-  }, 3000);
+    interval = setInterval(nextSlide, 3000);
 }
 
 function stopAutoPlay() {
-  clearInterval(intervalId);
+    clearInterval(interval);
 }
 
-// Start auto-play
-startAutoPlay();
+next.addEventListener('click', () => {
+    nextSlide();
+    stopAutoPlay();
+    startAutoPlay();
+});
 
-// Pause on hover
-const carousel = document.getElementById("carousel");
-carousel.addEventListener("mouseenter", stopAutoPlay);
-carousel.addEventListener("mouseleave", startAutoPlay);
+prev.addEventListener('click', () => {
+    prevSlide();
+    stopAutoPlay();
+    startAutoPlay();
+});
+
+slider.addEventListener('mouseenter', stopAutoPlay);
+slider.addEventListener('mouseleave', startAutoPlay);
+
+startAutoPlay();

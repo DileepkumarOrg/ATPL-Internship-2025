@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    text-align: center;
+    padding: 50px;
+}
+
+.weather-app {
+    background: #fff;
+    padding: 20px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#cityInput {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#weatherResult {
+    margin-top: 20px;
+    font-size: 18px;
+}

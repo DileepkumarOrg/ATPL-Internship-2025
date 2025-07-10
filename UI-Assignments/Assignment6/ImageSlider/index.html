@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Image Carousel</title>
-  <style>
-    
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Slider</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="carousel" id="carousel">
-    <div class="slides" id="slides">
-      <img src="https://picsum.photos/id/1015/600/400" alt="Slide 1">
-      <img src="https://picsum.photos/id/1016/600/400" alt="Slide 2">
-      <img src="https://picsum.photos/id/1018/600/400" alt="Slide 3">
-      <img src="https://picsum.photos/id/1019/600/400" alt="Slide 4">
-    </div>
-    <div class="nav">
-      <button id="prev">&#10094;</button>
-      <button id="next">&#10095;</button>
-    </div>
-  </div>
 
-  <script src="script.js"></script>
+<div class="slider-container">
+    <div class="slider" id="slider">
+        <img src="image1.png" alt="Image 1">
+        <img src="image2.png" alt="Image 2">
+        <img src="image3.png" alt="Image 3">
+        <img src="image4.png" alt="Image 4">
+    </div>
+    <button class="nav prev" id="prev">&#10094;</button>
+    <button class="nav next" id="next">&#10095;</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
