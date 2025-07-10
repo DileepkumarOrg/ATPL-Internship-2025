@@ -1,89 +1,88 @@
-let listOfAllTasks=[];
- function addTask() {
-    const taskList = document.getElementById("task-list");
-    const newTask = document.createElement("div");
-    newTask.className = "task";
+let listOfAllTasks = [];
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.className = "task-checkbox";
+function addTask() {
+	const taskList = document.getElementById("task-list");
+	const newTask = document.createElement("div");
+	newTask.className = "task";
 
-    const taskText = document.createElement("span");
-    taskText.textContent = document.getElementById("newTaskAdding").value.trim();
+	const checkbox = document.createElement("input");
+	checkbox.type = "checkbox";
+	checkbox.className = "task-checkbox";
 
-    if (document.getElementById("newTaskAdding").value != ""){
-      listOfAllTasks.push(document.getElementById("newTaskAdding").value);
-      taskText.className = "task-text";
-      newTask.appendChild(checkbox);
-      newTask.appendChild(taskText);
-      taskList.appendChild(newTask);
-    }
-    else{
-      window.alert("Enter Task then click on Add...!")
-    }
-    document.getElementById("newTaskAdding").value = "";
+	const taskText = document.createElement("span");
+	taskText.textContent = document.getElementById("newTaskAdding").value.trim();
+
+	if (document.getElementById("newTaskAdding").value !== "") {
+		listOfAllTasks.push(document.getElementById("newTaskAdding").value);
+		taskText.className = "task-text";
+		newTask.appendChild(checkbox);
+		newTask.appendChild(taskText);
+		taskList.appendChild(newTask);
+	} else {
+		window.alert("Enter Task then click on Add...!");
+	}
+	document.getElementById("newTaskAdding").value = "";
 }
 
 function deleteSelectedTask() {
-    const checkboxes = document.querySelectorAll(".task-checkbox");
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            checkbox.parentElement.remove();
-        }
-    });
+	const checkboxes = document.querySelectorAll(".task-checkbox");
+	checkboxes.forEach(checkbox => {
+		if (checkbox.checked) {
+			checkbox.parentElement.remove();
+		}
+	});
 }
 
 function doneSelectedTasks() {
-    const checkboxes = document.querySelectorAll(".task-checkbox");
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            const taskBox = checkbox.parentElement;
-            taskBox.style.backgroundColor = "lightgreen";
-            taskBox.style.color = "gray";
-        }
-    });
+	const checkboxes = document.querySelectorAll(".task-checkbox");
+	checkboxes.forEach(checkbox => {
+		if (checkbox.checked) {
+			const taskBox = checkbox.parentElement;
+			taskBox.style.backgroundColor = "lightgreen";
+			taskBox.style.color = "gray";
+		}
+	});
 }
 
-function notDoneSelectedTasks(){
-  const checkboxes = document.querySelectorAll(".task-checkbox");
-  checkboxes.forEach(checkboxe =>{
-    if (checkboxe.checked){
-      const taskBox = checkboxe.parentElement;
-      taskBox.style.backgroundColor="tomato";
-    }
-  })
+function notDoneSelectedTasks() {
+	const checkboxes = document.querySelectorAll(".task-checkbox");
+	checkboxes.forEach(checkbox => {
+		if (checkbox.checked) {
+			const taskBox = checkbox.parentElement;
+			taskBox.style.backgroundColor = "tomato";
+			taskBox.style.color = "white";
+		}
+	});
 }
 
-
-
-function displayAllTasks(){
-  let allTasks = document.getElementById("allTasks");
-  allTasks.innerHTML = "<h3>All Tasks:</h3>";
-  listOfAllTasks.forEach((element,index) =>{
-    let task = document.createElement("p");
-    task.innerText = `${index+1}. ${element}`
-    allTasks.appendChild(task);
-
-  })
+function displayAllTasks() {
+	let allTasks = document.getElementById("allTasks");
+	allTasks.innerHTML = "<h3>All Tasks:</h3>";
+	listOfAllTasks.forEach((element, index) => {
+		let task = document.createElement("p");
+		task.innerText = `${index + 1}. ${element}`;
+		allTasks.appendChild(task);
+	});
 }
 
+function download() {
+	if (listOfAllTasks.length === 0) {
+		alert("No tasks to download.");
+		return;
+	}
+	
+	let content = "List of All Tasks:\n\n";
+	listOfAllTasks.forEach((task, index) => {
+		content += `${index + 1}. ${task}\n`;
+	});
 
-
-let buttons = document.querySelectorAll(".buttons");
-
-buttons.forEach(button =>{
-  button.addEventListener(".buttons-hover",event =>{
-    event.target.button.classList.toggle(".buttons-hover");
-  })
-});
-
-
-/* buttons.forEach(button => {
-  button.addEventListener("mouseenter", () => {
-    button.classList.add("buttons-hover");
-  });
-
-  button.addEventListener("mouseleave", () => {
-    button.classList.remove("buttons-hover");
-  });
-}); */
+	const blob = new Blob([content], { type: "text/plain" });
+	const url = URL.createObjectURL(blob);
+	const a = document.createElement("a");
+	a.href = url;
+	a.download = "tasks.txt";
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
+	URL.revokeObjectURL(url);
+}
