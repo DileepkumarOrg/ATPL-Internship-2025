@@ -1,13 +1,14 @@
+
 <div id="container">
     <form id="form-div">
         <div id="username-div">
             <label for="username">Username</label>
-            <input id="username" type="text" name="username" placeholder="Enter user name">
+            <input id="username" type="text" name="username" placeholder="Enter user name" [(ngModel)] = "name">
         </div>
         <div id="age-div">
             <label for="age">Age</label>
-            <input id="age" type="number">
+            <input id="age" type="number" [(ngModel)] = "age">
         </div>
-        <button id="Submit">Submit</button>
+        <button id="Submit" (click)="display()">Submit</button>
     </form>
 </div>
