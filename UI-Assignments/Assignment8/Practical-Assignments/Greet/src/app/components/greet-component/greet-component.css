@@ -1,0 +1,21 @@
+#container{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+#form-div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+#username-div, #age-div{
+    display: flex;
+    flex-direction: column;
+}
+

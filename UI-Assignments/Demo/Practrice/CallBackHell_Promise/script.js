@@ -5,7 +5,7 @@
 // Take out the trash
 
 // callBack Hell
-/* function walkDog(callBack){
+function walkDog(callBack){
     setTimeout(() =>{
         console.log("You walk dog");
         callBack();
@@ -31,11 +31,11 @@ walkDog(callBack =>{
     cleanKitchen(callBack =>{
         trash(()=> console.log("Completed all works"))
     });
-}); */
+});
 
 // Promise
 
-function walkDog(){
+/* function walkDog(){
     return new Promise((resolve,reject) => {
         setTimeout(() => {
             resolve("You walk Dog..")
@@ -64,4 +64,32 @@ function trash(){
 
 walkDog().then(value => {console.log(value); return cleanKitchen()})
         .then(value => {console.log(value); return trash()})
-        .then(value => {console.log(value); return console.log("All tasks done")});
+        .then(value => {console.log(value); return console.log("All tasks done")}); */
+
+
+
+class Person {
+    public name: string;
+    private age: number;
+    protected gender: string;
+
+    constructor(name: string, age: number, gender: string) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    public getAge(): number {
+        return this.age;
+    }
+
+    public getGender(): string {
+        return this.gender;
+    }
+}
+
+const person = new Person("Charan", 30, "male");
+
+console.log(person.getAge());
+console.log(person.getGender());
+ 
