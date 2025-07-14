@@ -1,0 +1,13 @@
+.container{
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+}
+
+td,tr,table,th{
+    border: 1px dashed black;
+    border-collapse: collapse;
+}

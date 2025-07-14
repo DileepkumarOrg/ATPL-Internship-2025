@@ -1,0 +1,31 @@
+<!-- <p>structural-directive-ngswitch-vs-switch-component works!</p> -->
+<div>
+    <div>
+        <button (click)="set(1)">Grade1</button>
+        <button (click)="set(2)">Grade2</button>
+        <button (click)="set(3)">Grade3</button>
+    </div>
+  <!--   <div [ngSwitch]="grade" class="m-3">
+        <div *ngSwitchCase="1">Congratulations on your outstanding achievement - First Grade</div>
+        <div *ngSwitchCase="2">Congratulations on your achievement - Second Grade</div>
+        <div *ngSwitchCase="3">Congratulations on your achievement - Third Grade</div>
+        <div *ngSwitchDefault>No result found...</div>
+    </div> -->
+    <div>
+        @switch (grade) {
+            @case(1){
+                Congratulations on your outstanding achievement - First Grade
+            }
+            @case(2){
+                Congratulations on your achievement - Second Grade
+            }
+            @case(3){
+               Congratulations on your achievement - Third Grade
+            }
+            @default{
+                No result found 
+            }
+        }
+    </div>
+</div>
+
