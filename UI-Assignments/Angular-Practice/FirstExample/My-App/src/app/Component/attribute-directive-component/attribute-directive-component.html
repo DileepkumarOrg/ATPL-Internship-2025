@@ -1,1 +1,31 @@
 <p>attribute-directive-component works!</p>
+<div>
+    <p [ngClass]="['green-color']">Hello World..!</p>
+    <!-- @if(){ -->
+</div>
+<div [ngClass]="className">
+  This div has a class dynamically applied.
+</div><br>
+<div class="static-class" [ngClass]="dynamicClass">
+  Static + dynamic class.
+</div><br>
+<div [ngClass]="['highlight', 'bordered']">
+  Multiple classes applied.
+</div><br>
+<div [ngClass]="classesArray">
+  Multiple classes via array variable.
+</div>
+
+<div [ngClass]="{
+    'active': isActive,
+    'disabled': isDisabled,
+    'highlight': isHighlighted
+  }">
+  Conditionally applied classes.
+</div>
+<div [ngClass]="isError ? 'error' : 'success'">
+  Shows error or success style.
+</div>
+<div [ngClass]="{'highlight': isHighlighted1}" [class.active]="isActive1">
+  Combining ngClass and class binding.
+</div>
