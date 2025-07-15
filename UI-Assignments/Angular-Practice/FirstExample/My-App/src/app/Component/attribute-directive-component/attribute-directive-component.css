@@ -16,13 +16,31 @@
     padding: 10px;
 }
 
+.active{
+    color: green;
+}
+.disabled{
+    color: red;
+}
+
 .bordered{
-    background-color: aquamarine;
-    color: black;
-    padding: 10px;
+    border: 3px solid black;
 }
 .static-class{
     background-color: rgb(219, 225, 95);
     color: black;
     padding: 10px;
 }
+
+.error{
+    background-color: bisque;
+    color: red;
+    padding: 10px;
+}
+
+.success{
+    padding: 10px;
+    background-color: bisque;
+    color: green;
+}
+

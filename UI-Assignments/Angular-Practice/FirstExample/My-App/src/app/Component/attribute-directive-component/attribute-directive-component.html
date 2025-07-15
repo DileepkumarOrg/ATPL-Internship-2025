@@ -29,3 +29,42 @@
 <div [ngClass]="{'highlight': isHighlighted1}" [class.active]="isActive1">
   Combining ngClass and class binding.
 </div>
+
+<div>
+  <p [ngClass]="click?'error':'success'">Hello Chinnu</p>
+  <button (click)="clicked()">Click me</button>
+</div>
+
+<div>
+  <h1 [ngClass]="redOrGreen">Hello World...!</h1>
+  <button (click)="changeColor('error')">Red</button>
+  <button (click)="changeColor('success')">Green</button>
+</div>
+
+<div>
+  <h2 [ngClass]="checked?'error':'success'">By Using Check Box</h2>
+  <input type="checkbox" [(ngModel)] = "checked">Click on the check box to see the changes in [ngClass]
+</div>
+
+<div>
+  <h2 [ngClass]="inputText" >Enter 'error' or 'success' to see the changes by taking input</h2>
+  <input type="text" placeholder="ENter error or success" [(ngModel)]="inputText">
+</div>
+
+<h1>ngStyle : It is used to add or remove inline styles of an element</h1>
+<div>
+  <h3 [ngStyle]="{'color':textColor, 'background-color':bgcolor}" >By using ng style we can change styles of an element</h3>
+  <button (click)="updateColor('green')"> Green</button>
+  <button (click)="updateColor('red')"> Red</button>
+</div>
+
+<div>
+  <h3 [ngStyle]="{'color':ngStyleChecked?'red':'green'}">ngStyle by using check box we can change the styles</h3>
+  <input type="checkbox" [(ngModel)] = "ngStyleChecked">Check and uncheck the boxes to see the results.
+</div>
+
+<div>
+  <h3 [ngStyle]="{'color':inputColor}">ngStyle by using input box</h3>
+  <input type="text" placeholder="Enter Color.... (red)" [(ngModel)]="inputColor">
+</div>
+

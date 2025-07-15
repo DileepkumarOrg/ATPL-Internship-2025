@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { StructuralDirectiveNgforVsForComponent } from "./Component/structural-directive-ngfor-vs-for-component/structural-directive-ngfor-vs-for-component";
 import { StructuralDirectiveNgswitchVsSwitchComponent } from "./Component/structural-directive-ngswitch-vs-switch-component/structural-directive-ngswitch-vs-switch-component";
 import { AttributeDirectiveComponent } from "./Component/attribute-directive-component/attribute-directive-component";
+import { SignalComponent } from "./Component/signal-component/signal-component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, /* StructuralDirectiveNgforVsForComponent, */ /* StructuralDirectiveNgswitchVsSwitchComponent, */ AttributeDirectiveComponent],
+  imports: [RouterOutlet, /* StructuralDirectiveNgforVsForComponent, */ /* StructuralDirectiveNgswitchVsSwitchComponent, */ /* AttributeDirectiveComponent, */ SignalComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
