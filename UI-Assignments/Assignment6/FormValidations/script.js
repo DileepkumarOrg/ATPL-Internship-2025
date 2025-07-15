@@ -61,3 +61,5 @@ function validateEmail(email) {
 	const specialCharacters = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 	return specialCharacters.test(email.toLowerCase());
 }
+
+
