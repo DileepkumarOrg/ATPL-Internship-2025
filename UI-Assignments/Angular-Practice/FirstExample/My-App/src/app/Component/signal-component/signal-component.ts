@@ -9,10 +9,9 @@ import { single } from 'rxjs';
   imports: [CommonModule,FormsModule],
   templateUrl: './signal-component.html',
   styleUrl: './signal-component.css',
-  changeDetection : ChangeDetectionStrategy.OnPush
 })
 export class SignalComponent {
-  counter = signal(0);
+ /*  counter = signal(0);
   //counter : WritableSignal<number> = signal(0)
   onIncriment(){
     this.counter.update(value => value+1)
@@ -28,5 +27,5 @@ export class SignalComponent {
       this.counter.set(30);
       console.log(this.count());
     }, 5000);
-  }
+  } */
 }
