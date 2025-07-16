@@ -1,0 +1,43 @@
+<div class="container"><h1>using *ngFor</h1>
+    <div>
+        <select>
+            <option [value]="" *ngFor="let employee of employees">
+                {{employee.employeeName}} - {{employee.employeeGmail}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr><th>Employee Name</th><th>EmployeeID</th><th>Employee Gmail</th></tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees"><td>{{employee.employeeID}}</td><td>{{employee.employeeName}}</td><td>{{employee.employeeGmail}}</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <h1>Using For</h1>
+    <div>
+        <select> @for (employee of employees; track $index) {
+            <option>{{employee.employeeID}} - {{employee.employeeName}}</option>
+        }</select>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr><th>Employee Name</th><th>EmployeeID</th><th>Employee Gmail</th></tr>
+            </thead>
+            @for (employee of employees; track $index) {
+                <tr><td>{{employee.employeeID}}</td><td>{{employee.employeeName}}</td><td>{{employee.employeeGmail}}</td></tr>
+            }
+        </table>
+    </div>
+    <div>
+        <button [value]="" *ngFor="let com of company">{{com}}</button><br><br> 
+    </div>
+    <div>
+        @for (com of company; track $index) {
+            <button>{{com}}</button>
+        }
+    </div>
+</div>

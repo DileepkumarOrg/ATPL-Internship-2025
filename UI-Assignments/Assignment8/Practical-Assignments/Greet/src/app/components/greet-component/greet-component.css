@@ -1,3 +1,10 @@
+.main{
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #container{
     width: 400px;
     height: 200px;
@@ -7,7 +14,10 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
+<<<<<<< HEAD
     margin: 350px;
+=======
+>>>>>>> 543ff572aece11947e480e7528e6089861ff524b
     border-radius: 10px;
 }
 
