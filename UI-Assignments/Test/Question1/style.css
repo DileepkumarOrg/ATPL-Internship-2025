@@ -1,0 +1,18 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25%;
+}
+div{
+    display: flex;
+    justify-content: center;
+}
+button{
+    font-size: 25px;
+    padding: 8px;
+    background-color: lightgreen;
+    color: white;
+    border: 1px solid rgb(133, 179, 133);
+    border-radius: 5px;
+}

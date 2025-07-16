@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="inputContainer">
+            <div><label for="name" id="nameLabel">Name</label>
+            <input name="name" type="text" id="nameInput" placeholder="Enter your name"></div>
+            <div><label for="age" id="ageLabel">Age</label>
+            <input type="number" id="ageInput" placeholder="Enter your age"></div>
+            <button type="button" id="generateButton">Generate Profile</button>
+        </div><br>
+        <div class="card" aria-placeholder="Profile Image">
+            <p id="nameOutput"></p>
+            <p id="ageOutput"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
