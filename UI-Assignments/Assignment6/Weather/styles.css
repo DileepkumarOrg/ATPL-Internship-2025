@@ -1,0 +1,33 @@
+body {
+    background: #e8b1b1;
+    text-align: center;
+    padding: 50px;
+}
+
+.weather-app {
+    background: #cc9595;
+    padding: 20px;
+    display: inline-block;
+    border: 1px solid #d68181;
+    border-radius: 8px;
+}
+
+#cityInput {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #ddaaaa;
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #e31111;
+    color: white;
+}
+
+#weatherResult {
+    margin-top: 20px;
+    font-size: 18px;
+}
