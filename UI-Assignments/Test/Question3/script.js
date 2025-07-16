@@ -12,7 +12,7 @@ addButton.addEventListener("click", event => {
         addElementList.textContent = inputList.value;
         addDeleteButton.textContent = "Delete";
         addDeleteButton.classList.add("deleteButtons");
-
+        listItem.classList.add("createdDiv")
         listItem.appendChild(addElementList);
         listItem.appendChild(addDeleteButton);
         addListDiv.appendChild(listItem);
