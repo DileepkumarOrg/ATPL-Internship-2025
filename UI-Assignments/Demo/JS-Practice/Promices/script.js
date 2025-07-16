@@ -160,7 +160,7 @@ function trash() {
 }
 
 
-async function performTasks() {
+/* async function performTasks() {
     try {
         const dogResult = await walkDog();
         console.log(dogResult);
@@ -209,6 +209,49 @@ btn.addEventListener("click", () => {
         performTasks();
     }, 1000);
 }); 
+ */
 
 
+function task1(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            const success = true;
+            if (success){
+                resolve("Resolved")
+            }else reject("rejected")
+        }, 2000);
+    })
+}
+
+function task2(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            const success = true;
+            if (success){
+                resolve("Resolved")
+            }else reject("Rejected")
+        }, 2000);
+    })
+}
+
+
+task1().then(value =>{console.log(value); return task2()})
+    .then(value => {console.log(value); console.log("All tasks done")})
+    .catch(error => console.error("Error : ",error))
+
+
+async function isWorked() {
+    try{
+        const task1 = await task1();
+        console.log(task1)
+        const task2 = await task2();
+        console.log(task2)
+        console.log("All tasks done")
+    }
+    catch(error){
+        console.error("Error is ",error);
+    }
+}
+
+isWorked()
 
