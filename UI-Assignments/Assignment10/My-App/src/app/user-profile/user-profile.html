@@ -1,0 +1,48 @@
+<div id="main">
+    <div id="container">
+        <div class="tasks">
+            <h1>Task1: Interpolation & Property Binding</h1>
+            <h2 class="subHeadStyle">Interpolation:</h2>
+            <h2>Welecome , {{userName}}</h2>
+            <p>Age: {{userAge}}</p>
+            <h2 class="subHeadStyle">Property Binding:</h2>
+            <img [src]="userImage" width="100" alt="User Image" id="image">
+        </div><br>
+        <div class="tasks">
+            <h1>Task2: Event Binding</h1>
+            <h2 class="subHeadStyle">Event Binding</h2>
+            <button (click)="onClick()">Click Me</button>
+            <p>{{clickMessage}}</p>
+        </div><br>
+        <div class="tasks">
+            <h1>Task3 : Two way Data Binding</h1>
+            <h2 class="subHeadStyle">Two way Data Binding</h2>
+            <input type="text" [(ngModel)] = "message" placeholder="Type a message..">
+            <p>{{message}}</p> 
+        </div><br>
+        <div class="tasks">
+            <h1>Task4 : Structural Directives</h1>
+            <h2 class="subHeadStyle"> *ngIf </h2>
+            <button (click)="showDetails = !showDetails">{{showDetails ? 'Hide':'Show'}}</button>
+            <div *ngIf="showDetails">
+                <p>{{userName}}</p>
+                <p>{{userAge}}</p>
+                <img [src]="userImage" width="100" alt="User Image">
+            </div>
+            <h2 class="subHeadStyle">*ngFor</h2>
+            <ul>
+                <li *ngFor="let skill of skills">{{skill}}</li>
+            </ul>
+        </div><br>
+        <div class="tasks">
+            <h1>Taks 5 : Attribute Directives</h1>
+            <h2 class="subHeadStyle">[ngStyle]</h2>
+            <p [ngStyle]="{color : userAge > 30 ? 'red':'green'}">{{userAge}} is Highlight</p>
+            <h2 class="subHeadStyle">[ngClass]</h2>
+            <p [ngClass]="{'premium':isPremiumUser,'basic':!isPremiumUser}">
+                Account Type 
+            </p>
+        </div>
+    </div>
+</div>
+

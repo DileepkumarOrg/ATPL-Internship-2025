@@ -1,0 +1,51 @@
+
+<h1> Built-in-pipes </h1>
+<h3>{{text}}</h3>
+<h2>Text Formating Pipes </h2>
+<h3>Pipe 1 : uppercase : {{text | uppercase}}</h3>
+<h3>Pipe 2 : lowercase : {{text | lowercase}}</h3>
+<h3>Pipe 3 : titlecase : {{text | titlecase}}</h3>
+<h2>Slice Pipe</h2>
+<h3>Pipe 4 : slice (2,6) : {{text | slice: 2:6}}</h3>
+<h3>Pipe 4 : slice (1,-2) : {{text | slice: 1:-2}}</h3>
+<h3>Pipe 4 : slice (-5) : {{text | slice: -5}}</h3>
+<h3>Pipe 4 : slice (20) : {{text | slice: 20}}</h3>
+<h3>Pipe 4 : slice (-20) : {{text | slice: -20}}</h3>
+<h3>Pipe 4 : slice (2,6) : {{ [0,1,2,3,4,5,6,7,8,9] | slice : 2:6}}</h3>
+<h2>JSON Pipe</h2>
+<h3>Pipe 5 : json : {{personalInfo | json}}</h3>
+<h2>Time and Date Pipes</h2>
+<h3>Pipe 6 : Date Pipe : {{currentDate | date}}</h3>
+<h3>Pipe 6 : short Pipe : {{currentDate | date: 'short' }}</h3>
+<h3>Pipe 6 : shortDate Pipe : {{currentDate | date: 'shortDate'}}</h3>
+<h3>Pipe 6 : mediumDate Pipe : {{currentDate | date: 'shortTime'}}</h3>
+<h3>Pipe 6 : mediumDate Pipe : {{currentDate | date: 'mediumDate'}}</h3>
+<h3>Pipe 6 : mediumTIme Pipe : {{currentDate | date: 'mediumTime'}}</h3>
+<h2>Decimala Pipes</h2>
+<!-- <h3>Pipe 7 : Decimal Pipes : {{ 2.36542 | number : '1:3'}}</h3>
+<h3>Pipe 7 : Decimal Pipes  : {{ 2.36542 | number : '2:7'}}</h3>
+<h3>Pipe 7 : Decimal Pipes  : {{ 122.36542 | number : '1:3'}}</h3> -->
+ <h3>7. DecimalPipe : {{3.141592653 | number:'1.3'}}</h3>
+<h3>7. DecimalPipe : {{3.141592653 | number:'2.3'}}</h3>
+<h3>7. DecimalPipe : {{53241533.14 | number:'2.5'}}</h3>
+<h2>Percentage Pipe</h2>
+<h3>Pipe 8 : {{ 0.25 | percent}}</h3>
+<h2>Currency Pipe</h2>
+<h3>Pipe 9 : {{ 25 | currency}}</h3>
+<h3>Pipe 9 : {{30 | currency : 'EUR'}}</h3>
+<h3>Pipe 9 : {{40 | currency : 'INR'}}</h3>
+<h3>Combine Pipes : {{currentDate | date | uppercase}}</h3>
+<h2>Async Pipe: 
+    <ul>
+        @for (item of items | async; track $index) {
+            <li>{{item}}</li>
+        }
+    </ul>
+</h2>
+<h2 >Custom Pipes : </h2>
+<h3>Phone Number Format : {{8179784985 | mobileNumberFormat}}</h3>
+<h3>Date MM/YYYY format: {{currentDate | customDateFormat}}</h3>
+<h3>Custom Pure Pipe: {{ 5 | CustomPurePipePipe}}</h3>
+
+
+
