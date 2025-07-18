@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { of } from 'rxjs';
 import { MobileNumberFormatPipe } from "../../pipes/mobile-number-format-pipe";
 import { CustomDateFormatPipe } from '../../pipes/custom-date-format-pipe';
-import { CustomPurePipePipe } from '../../pipes/custom-pure-pipe-pipe';
+import { customPurePipe } from '../../pipes/custom-pure-pipe-pipe';
+import { CustomImpurePipePipe } from "../../pipes/custom-impure-pipe-pipe";
 
 @Component({
   selector: 'app-built-in-pipes-component',
-  imports: [CommonModule, MobileNumberFormatPipe, CustomDateFormatPipe,CustomPurePipePipe],
+  imports: [CommonModule, MobileNumberFormatPipe, CustomDateFormatPipe, customPurePipe, CustomImpurePipePipe],
   templateUrl: './built-in-pipes-component.html',
   styleUrl: './built-in-pipes-component.css'
 })

@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CustomImpurePipePipe implements PipeTransform {
 
   transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+    return new Date().toLocaleTimeString();
   }
 
 }

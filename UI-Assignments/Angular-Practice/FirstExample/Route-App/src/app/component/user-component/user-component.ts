@@ -11,6 +11,6 @@ export class UserComponent {
   constructor (private router :Router){}
   login(){
     //this.router.navigateByUrl("menu");
-    this.router.navigate(['menu'])
+    this.router.navigate(['menu']);
   }
 }

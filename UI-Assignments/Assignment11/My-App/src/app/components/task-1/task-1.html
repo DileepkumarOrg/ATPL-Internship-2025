@@ -1,0 +1,9 @@
+<div>
+    <div>
+        <h1>Task 1: Show/Hide Section Toggle</h1>
+        <button (click)="showTips = !showTips"> {{ showTips ? 'Hide Tips' : 'Show Tips' }}</button>
+        <p *appToggle="showTips">If click on the toggle button the content will be disappear</p>
+    </div>
+</div>
+
+

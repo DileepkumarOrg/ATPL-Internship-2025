@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'customPurePipe'
 })
-export class CustomPurePipePipe implements PipeTransform {
+export class customPurePipe implements PipeTransform {
 
   transform(value: any): any {
     return value * value;
