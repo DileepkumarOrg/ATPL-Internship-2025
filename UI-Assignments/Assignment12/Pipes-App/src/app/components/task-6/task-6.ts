@@ -9,11 +9,12 @@ import { Component } from '@angular/core';
 })
 export class Task6 {
   headlines: string[] = [
-    'Breaking News: Major Earthquake Hits City',
-    'Sports Update: Local Team Wins Championship',
-    'Weather Alert: Severe Storms Expected This Weekend',
-    'Technology: New Smartphone Model Released',
-    'Health: Tips for Staying Fit During Winter'
+    "Breaking: New AI Model Breaks All Benchmarks in Speed and Accuracy",
+    "India Wins Historic Cricket Match in Super Over Thriller",
+    "Scientists Discover Water Reserves Under the Surface of Mars",
+    "New Electric Car Offers 1000km Range on a Single Charge",
+    "Government Announces New Education Policy Focused on Innovation",
+    "Global Markets Soar as Tech Stocks Reach Record Highs"
   ];
 }
 

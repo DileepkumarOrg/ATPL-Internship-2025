@@ -1,12 +1,9 @@
 
 <div>
     <h1>Task 6: Truncate and Transform News Headlines</h1>
-    <div>
-        <h2>News Headlines</h2>
-        <ul>
-            <li *ngFor="let headline of headlines">
-                {{ headline | slice:0:50 | uppercase }}...
-            </li>
-        </ul>
+    <div class="container">
+        <div class="news-box" *ngFor="let headline of headlines">
+            <p>{{ headline | slice:0:50 | uppercase }}...</p>
+        </div>
     </div>
 </div>
