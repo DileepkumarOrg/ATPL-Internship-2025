@@ -9,49 +9,49 @@
         </select>
     </div>
     <div>
-        <div *ngIf="userRole==='Trainer' || userRole === 'UI'">
-            <h2>UI Paper</h2>
-            <h3>Question1</h3>
-            <h3 *ngIf="userRole === 'Trainer' ">Solution 1</h3>
+        <div *ngIf="userRole==='Trainer' || userRole === 'UI'" class="UIDiv">
             <div>
-                <button *ngIf="userRole ==='UI' "(click)="userUI = !userUI">{{userUI?'Hide Answer':'Show Answer'}}</button>
-                <h3 *ngIf='userUI'>Solution 1</h3>
+                <h2>UI Paper</h2>
+                <button *ngIf="userRole ==='UI' "(click)="userUI = !userUI">{{userUI?'Hide Answers':'Show Answers'}}</button>
             </div>
-            <h3>Question2</h3>
-            <h3 *ngIf="userRole === 'Trainer' ">Solution 1</h3>
-            <div>
-                <button *ngIf="userRole ==='UI' "(click)="userUI = !userUI">{{userUI?'Hide Answer':'Show Answer'}}</button>
-                <h3 *ngIf='userUI'>Solution 1</h3>
-            </div>
-            <h3>Question3</h3>
-            <h3 *ngIf="userRole === 'Trainer' ">Solution 1</h3>
-            <div>
-                <button *ngIf="userRole ==='UI' "(click)="userUI = !userUI">{{userUI?'Hide Answer':'Show Answer'}}</button>
-                <h3 *ngIf='userUI'>Solution 1</h3>
-            </div>
-
+            <h3>1. To detect changes in the angular 2 project which of the following is used?</h3>
+            <input type="radio" name="q1" ><label>zone.js</label>
+            <input type="radio" name="q1" ><label>scope.js</label>
+            <input type="radio" name="q1" ><label>zones.js</label>
+            <input type="radio" name="q1" ><label>zone$.js</label>
+            <h4 *ngIf='userUI || userRole=="Trainer"'>zone.js</h4>
+            <h3>2. Choose whether true or false:  AngularJS bootstrap itself during the config phase.</h3>
+            <input type="radio" name="q2" ><label>True</label>
+            <input type="radio" name="q2" ><label>False</label>
+            <h4 *ngIf='userUI || userRole=="Trainer"'>False</h4>
+            <h3>3. Most used CSS frameworks are ________</h3>
+            <input type="radio" name="q3" ><label>SASS</label>
+            <input type="radio" name="q3" ><label>Semantic UI</label>
+            <input type="radio" name="q3" ><label>bootstrap</label>
+            <input type="radio" name="q3" ><label>zone$.js</label>
+            <h4 *ngIf='userUI || userRole=="Trainer"'>bootstrap</h4>
         </div>
-        <div  *ngIf="userRole==='Trainer' || userRole === 'Java'">
-            <h2>Java Paper</h2>
-            <h3>Question1</h3>
-            <h3 *ngIf=" userRole=== 'Trainer'">Solution 1</h3>
+        <div *ngIf="userRole==='Trainer' || userRole === 'Java'" class="JavaDiv">
             <div>
-                <button *ngIf="userRole ==='Java' "(click)="userJava = !userJava">{{userUI?'Hide Answer':'Show Answer'}}</button>
-                <h3 *ngIf='userJava'>Solution 1</h3>
+                <h2>Java Paper</h2>
+                <button *ngIf="userRole ==='Java' "(click)="userUI = !userUI">{{userUI?'Hide Answers':'Show Answers'}}</button>
             </div>
-            <h3>Question2</h3>
-            <h3 *ngIf=" userRole=== 'Trainer'">Solution 1</h3>
-            <div>
-                <button *ngIf="userRole ==='Java' "(click)="userJava = !userJava">{{userUI?'Hide Answer':'Show Answer'}}</button>
-                <h3 *ngIf='userJava'>Solution 1</h3>
-            </div>
-            <h3>Question3</h3>
-            <h3 *ngIf=" userRole=== 'Trainer'">Solution 1</h3>
-            <div>
-                <button *ngIf="userRole ==='Java' "(click)="userJava = !userJava">{{userUI?'Hide Answer':'Show Answer'}}</button>
-                <h3 *ngIf='userJava'>Solution 1</h3>    
-
-            </div>
+            <h3>1. What happens if an abstract class does not have any abstract methods?</h3>
+            <input type="radio" name="qj1" ><label>It will not compile.</label>
+            <input type="radio" name="qj1" ><label>The class can still be abstract.</label>
+            <input type="radio" name="qj1" ><label>Java will automatically provide an abstract method.</label>
+            <input type="radio" name="qj1" ><label>It becomes a concrete class.</label>
+            <h4 *ngIf='userUI || userRole=="Trainer"'>The class can still be abstract.</h4>
+            <h3>2. Which of the following statements about inheritance is false?</h3>
+            <input type="radio" name="qj2" ><label>Java supports single inheritance.</label>
+            <input type="radio" name="qj2" ><label>Java allows multiple class inheritance using extends.</label>
+            <h4 *ngIf='userUI || userRole=="Trainer"'>Java allows multiple class inheritance using extends.</h4>
+            <h3>3. Which of the following statements about abstract classes is correct?</h3>
+            <input type="radio" name="qj3" ><label>Abstract classes cannot have constructors.</label>
+            <input type="radio" name="qj3" ><label>Abstract classes cannot have static methods.</label>
+            <input type="radio" name="qj3" ><label>An object of an abstract class cannot be instantiated.</label>
+            <input type="radio" name="qj3" ><label>Abstract classes cannot have final methods.</label>
+            <h4 *ngIf='userUI || userRole=="Trainer"'>An object of an abstract class cannot be instantiated.</h4>
         </div>
         
     </div>
