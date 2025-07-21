@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './task-3.css'
 })
 export class Task3 {
-  
+  isDisabled: boolean = true;
 }
