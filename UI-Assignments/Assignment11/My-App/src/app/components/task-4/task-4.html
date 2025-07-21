@@ -1,13 +1,13 @@
-<div>
-    <div>
+<div class="container">
         <h1>Task 4: Role-Based Content Display </h1>
+    <div class="mainDiv">
         <select [(ngModel)]='userRole'>
             <option value="" disabled selected>Select Role</option>
             <option value="Admin">Admin</option>
             <option value="User">User</option>
         </select>
-        <p *ngIf="userRole == 'Admin'">Admin can only see this message</p>
-        <p *ngIf="userRole == 'User'">User can only see this message</p>
+        <p *ngIf="userRole === 'Admin'">Admin can only see this message</p>
+        <p *ngIf="userRole === 'User'">User can only see this message</p>
 
     </div>
 </div>

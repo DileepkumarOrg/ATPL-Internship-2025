@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.main-content{
+    width: 80%;
+    border: 1px solid #ccc;
+    font-size: 25px;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #e0bcbc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+table{
+    direction: ltr;
+}
+
+td,th{
+    padding: 10px;
+    text-align: center;
+}

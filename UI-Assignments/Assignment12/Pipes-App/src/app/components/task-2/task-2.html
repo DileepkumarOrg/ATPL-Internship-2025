@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Task 2: Employee Joining Dates </h1>
+    <div class="main-content">
+        <p>List of employees with their joining dates:</p>
+        <ul>
+            <li *ngFor="let employee of employeeDetails">
+                {{ employee.name }} - {{ employee.joiningDate | date:'longDate' }}
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+

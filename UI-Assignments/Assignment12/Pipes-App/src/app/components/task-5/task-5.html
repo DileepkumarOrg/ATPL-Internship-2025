@@ -1,0 +1,25 @@
+
+<div class="container">
+  <h1>Task 5: Filter and Display Active Users</h1>
+  <div class="main-content">
+    <div class="selected-user">
+        <h3>{{userType | titlecase}} Users: </h3>
+        <select [(ngModel)]="userType">
+            <option value="" disabled>All Users</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select>
+        </div>
+    <ul>
+      <div *ngFor="let user of users">
+        <li *ngIf="user.status === userType">
+          {{ user.name | titlecase }} - Last Login: {{ user.lastLogin | date:'short' }}- status: {{ user.status }}
+        </li>
+    </div>
+    <p *ngIf="userType==''">Select the user type from the top right corner dropdown</p>
+    </ul>
+  </div>
+</div>
+
+
+

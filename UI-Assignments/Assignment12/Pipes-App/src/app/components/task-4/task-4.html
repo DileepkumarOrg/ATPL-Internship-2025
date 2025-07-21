@@ -1,0 +1,15 @@
+
+<div class="container">
+    <h1>Task 4: Sort and Display Prices with Currency</h1>
+    <div class="main-content">
+        <h3>List of item prices:</h3>
+        <p>Original Prices :   {{prices1}}</p>
+        <h3>Sorted Prices : </h3>
+        <ul>
+            <li *ngFor="let price of sortedPrices | slice:0:5">
+                {{ price | currency:'INR' }}
+            </li>
+        </ul>
+    </div>
+
+

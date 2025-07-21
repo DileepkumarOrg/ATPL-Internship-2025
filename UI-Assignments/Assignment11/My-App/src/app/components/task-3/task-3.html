@@ -1,9 +1,9 @@
-<div>
+<div class="container">
     <h1>Task 3 : Disable Element Based on Condition</h1>
-    <div>
+    <div class="mainDiv">
         <button (click)="isDisabled=!isDisabled">{{isDisabled?"Enable":"Disable"}}</button>
-        <input type="text" placeholder="Enter something" [disabled]="isDisabled" [ngClass]="{ 'disabled-style': isDisabled }">
-        <button [disabled]="isDisabled" [ngClass]="{ 'disabled-style': isDisabled }"> Submit</button>
+        <input type="text" placeholder="Enter something" [disabled]="isDisabled" [ngClass]="{ 'disabled': isDisabled }">
+        <button [disabled]="isDisabled" [ngClass]="{ 'disabled': isDisabled }"> Submit</button>
     </div>
 </div>
 

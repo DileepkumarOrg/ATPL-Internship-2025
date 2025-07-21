@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.main-content{
+    width: 40%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 25px;
+    background-color: #a8c973;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: rgba(208, 228, 171, 0.39) 2px 10px 5px;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p{
+    text-align: center;
+}

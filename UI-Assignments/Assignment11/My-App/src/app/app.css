@@ -1,3 +1,39 @@
-.active{
-    background-color: green;
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
+
+li{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+.active{
+    color: blue;
+}
+
+button{
+    border: none;
+    background-color: none;
+}
+button:hover{
+    padding: 9px;
+    background-color: lightblue;
+}
+
+

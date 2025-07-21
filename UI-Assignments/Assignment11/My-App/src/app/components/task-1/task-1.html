@@ -1,8 +1,9 @@
-<div>
-    <div>
+<div class="container">
         <h1>Task 1: Show/Hide Section Toggle</h1>
+    <div class="mainDiv">
         <button (click)="showTips = !showTips"> {{ showTips ? 'Hide Tips' : 'Show Tips' }}</button>
-        <p *appToggle="showTips">If click on the toggle button the content will be disappear</p>
+        <p *appToggle="showTips">This guide covers a range of style conventions for Angular application code. These recommendations <br>
+            are not required for Angular to work, but instead establish a set of coding practices that promote consistency across the <br>Angular ecosystem. A consistent set of practices makes it easier to share code and move between projects.</p>
     </div>
 </div>
 

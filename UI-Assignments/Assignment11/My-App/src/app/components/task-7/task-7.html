@@ -1,1 +1,58 @@
-<p>task-7 works!</p>
+<div class="container">
+        <h1>Task 7 : FAQ List with Role-Based Visibility and Hover Highlight </h1>
+    <div class="mainDiv">
+        <select [(ngModel)]='userRole'>
+            <option value="" disabled selected>Select Role</option>
+            <option value="Trainer">Trainer</option>
+            <option value="UI">UI</option>
+            <option value="Java">Java</option>
+        </select>
+    </div>
+    <div>
+        <div *ngIf="userRole==='Trainer' || userRole === 'UI'">
+            <h2>UI Paper</h2>
+            <h3>Question1</h3>
+            <h3 *ngIf="userRole === 'Trainer' ">Solution 1</h3>
+            <div>
+                <button *ngIf="userRole ==='UI' "(click)="userUI = !userUI">{{userUI?'Hide Answer':'Show Answer'}}</button>
+                <h3 *ngIf='userUI'>Solution 1</h3>
+            </div>
+            <h3>Question2</h3>
+            <h3 *ngIf="userRole === 'Trainer' ">Solution 1</h3>
+            <div>
+                <button *ngIf="userRole ==='UI' "(click)="userUI = !userUI">{{userUI?'Hide Answer':'Show Answer'}}</button>
+                <h3 *ngIf='userUI'>Solution 1</h3>
+            </div>
+            <h3>Question3</h3>
+            <h3 *ngIf="userRole === 'Trainer' ">Solution 1</h3>
+            <div>
+                <button *ngIf="userRole ==='UI' "(click)="userUI = !userUI">{{userUI?'Hide Answer':'Show Answer'}}</button>
+                <h3 *ngIf='userUI'>Solution 1</h3>
+            </div>
+
+        </div>
+        <div  *ngIf="userRole==='Trainer' || userRole === 'Java'">
+            <h2>Java Paper</h2>
+            <h3>Question1</h3>
+            <h3 *ngIf=" userRole=== 'Trainer'">Solution 1</h3>
+            <div>
+                <button *ngIf="userRole ==='Java' "(click)="userJava = !userJava">{{userUI?'Hide Answer':'Show Answer'}}</button>
+                <h3 *ngIf='userJava'>Solution 1</h3>
+            </div>
+            <h3>Question2</h3>
+            <h3 *ngIf=" userRole=== 'Trainer'">Solution 1</h3>
+            <div>
+                <button *ngIf="userRole ==='Java' "(click)="userJava = !userJava">{{userUI?'Hide Answer':'Show Answer'}}</button>
+                <h3 *ngIf='userJava'>Solution 1</h3>
+            </div>
+            <h3>Question3</h3>
+            <h3 *ngIf=" userRole=== 'Trainer'">Solution 1</h3>
+            <div>
+                <button *ngIf="userRole ==='Java' "(click)="userJava = !userJava">{{userUI?'Hide Answer':'Show Answer'}}</button>
+                <h3 *ngIf='userJava'>Solution 1</h3>    
+
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.main-content{
+    width: 40%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #e0bcbc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+ 
+.main-content li{
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f3e4e4;
+}
+
+.main-content li:hover{
+    background-color: #e7d3d3;
+    cursor: pointer;
+}
