@@ -1,0 +1,27 @@
+
+
+.nav-class{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+}
+.active{
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+
+button{
+    background-color: rgb(136, 223, 136);
+    border: none;
+    padding: 15px;
+    min-width: 100px;
+    border-radius: 25px;
+}
+
+button:hover{
+    background-color: lightseagreen;
+}

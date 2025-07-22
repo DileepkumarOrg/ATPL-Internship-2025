@@ -1,0 +1,29 @@
+
+<div class="container">
+    <h1> Task 3: Feedback Form with Radio Buttons</h1>
+    <form #form="ngForm">
+        <div class="inputDiv">
+            <label>Full Name</label>
+            <input type="text" #fName="ngModel" [(ngModel)]="fullName" name="fullName" placeholder="Enter your fullName" required>
+            <span *ngIf="fName.errors?.['required'] && fName.touched" >FullName is Required</span>
+        </div>
+        <div class="inputDiv">
+            <label for="feedback" >Feedback</label>
+            <div>
+                <input type="radio" name="feedback" required value="Good" #feedbackError="ngModel" [(ngModel)]="feedback"><label>Good</label>
+                <input type="radio" name="feedback" value="Average" #feedbackError="ngModel" [(ngModel)]="feedback"><label>Average</label>
+                <input type="radio" name="feedback" value="Poor" #feedbackError="ngModel" [(ngModel)]="feedback"><label>Poor</label>
+            </div>
+            <span *ngIf="feedbackError.errors?.['required'] && feedbackError.touched" >Choose one</span>
+            <div class="inputDiv">
+                <label>Comments</label>
+                <textarea rows="4" cols=""  required name="comment" placeholder="Enter your Comments"> </textarea>
+            </div>
+            <button  [disabled]="form.invalid" (click)="onSubmit()">Submit </button>
+        </div>
+    </form>
+    <div *ngIf="submitted">
+        <p>Thank You..! You selected Feedback type is {{feedback}}</p>
+    </div>
+</div>
+

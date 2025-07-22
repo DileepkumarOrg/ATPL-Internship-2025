@@ -1,0 +1,27 @@
+
+<div class="container">
+    <h1> Task 6: Template Reference Variable & Form State</h1>
+    <form #form="ngForm">
+        <div class="inputDiv">
+            <label for="userName">UserName</label>
+            <input type="text" #uName = 'ngModel' [(ngModel)]="userName" name="userName"  required placeholder="Enter User Name">
+            <span *ngIf="uName.errors?.['required'] && uName.touched">Username is required {{userName}}</span>
+        </div>
+        <div class="inputDiv">
+            <label for="email">Emial ID</label>
+            <input type="text" #emailID = 'ngModel' [(ngModel)]="email" name="email" pattern="^[\w.+\-]+@[a-zA-Z0-9.-]+\.com$" required placeholder="Enter Email ID">
+            <span *ngIf="emailID.errors?.['required'] && emailID.touched">EmailID is required {{userName}}</span>
+            <span *ngIf="emailID.errors?.['pattern']">Email not found</span>
+        </div>
+        <div class="inputDiv">
+            <label for="password">Password</label>
+            <input type="password" #passwordError = 'ngModel' [(ngModel)]="password" name="password" required minlength="6" placeholder="Enter Password">
+            <span *ngIf="passwordError.errors?.['required'] && passwordError.touched">Password is required</span>
+            <span *ngIf="passwordError.errors?.['minlength']">Password shold be 8 characters</span>
+        </div>
+        <button type="submit"  [disabled]="form.invalid" >Login</button>
+    </form>
+</div>
+
+
+

@@ -1,1 +1,31 @@
-<p>template-form works!</p>
+<div class="container">
+    <div class="main-Div">
+
+        <form #form="ngForm">
+            <h1>Registration Form </h1>
+            <div>
+                <label for="firstName" >FirstName</label>
+                <input type="text" #fName="ngModel" name="firstName" required [(ngModel)]="userObj.firstName" minlength="4" placeholder="Enter First Name "><br>
+                <!-- @if (fName.errors?.['required'] && fName.touched) {
+                    <span>First Name is required </span>
+                } -->
+                <span  *ngIf="fName.errors?.['required'] && fName.touched">FirstName is Required </span>
+                <span *ngIf="fName.errors?.['minlength']">FirstName is having min 4 char</span>
+            </div>
+            <div>
+                <label for="lastName">LastName</label>
+                <input type="text" #lName="ngModel" name="lastName" required [(ngModel)]="userObj.lastName" placeholder="Enter Last Name "><br>
+                <span  *ngIf="lName.errors?.['required'] && lName.touched">LastName is Required</span>
+
+            </div>
+            <div>
+                <input type="checkbox" name="valid" [(ngModel)]="userObj.isAgree" id="valid">
+                <label for="valid">I agree</label>
+            </div>
+            <button type="submit" (click)="onSubmit()" [disabled]="form.invalid">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+

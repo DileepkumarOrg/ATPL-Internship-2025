@@ -1,0 +1,24 @@
+
+
+<div class="container">
+    <h1> Task 4: Dropdown with ngModel</h1>
+    <form #myForm = 'ngForm'>
+        <div class="input-Div">
+            <label for="name">Name</label>
+            <input type="text" placeholder="Enter your Name" name="name" #nameError="ngModel" [(ngModel)]="name" required>
+            <span *ngIf="nameError.errors?.['required'] && nameError.touched">Name required</span>
+            <label>Country</label>
+            <select #countryError = 'ngModel' [(ngModel)]="country" name="country" required="">
+                <option value = '' disabled selected>Select Country</option>
+                <option value="India" >India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+            </select>
+            <span *ngIf="countryError.errors?.['required'] && countryError.touched">Country required</span><br>
+        <button type="submit" [disabled]="myForm.invalid" (click)="onSubmit()">Submit</button>
+        </div>
+    </form>
+    <div class="display" *ngIf="isDisplay">
+        <p>Selected Country :  {{country}}</p>
+    </div>
+</div>
