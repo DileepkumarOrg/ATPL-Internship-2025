@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-task-5',
@@ -12,5 +12,7 @@ export class Task5 {
     userName :string = '';
   email : string = '';
   password : string =  '';
-
+  ResetForm(form: NgForm) {
+    form.reset();
+  }
 }

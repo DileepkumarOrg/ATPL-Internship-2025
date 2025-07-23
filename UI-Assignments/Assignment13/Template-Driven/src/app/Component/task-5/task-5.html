@@ -1,7 +1,7 @@
 
 <div class="container">
     <h1>  Task 5: Form Reset</h1>
-    <form #form="ngForm">
+    <form #form="ngForm" >
         <div class="inputDiv">
             <label for="userName">UserName</label>
             <input type="text" #uName = 'ngModel' [(ngModel)]="userName" name="userName"  required placeholder="Enter User Name">
@@ -21,7 +21,7 @@
         </div>
         <div class="buttonDiv">
             <button id="submit" type="submit"  [disabled]="form.invalid" >Login</button>
-            <button id="reset" type="reset" >Reset</button>
+            <button id="reset" (click)="ResetForm(form)" >Reset</button>
         </div>
     </form>
 </div>

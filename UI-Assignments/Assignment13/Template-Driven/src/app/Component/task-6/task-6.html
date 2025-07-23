@@ -10,7 +10,7 @@
         <div class="inputDiv">
             <label for="email">Emial ID</label>
             <input type="text" #emailID = 'ngModel' [(ngModel)]="email" name="email" pattern="^[\w.+\-]+@[a-zA-Z0-9.-]+\.com$" required placeholder="Enter Email ID">
-            <span *ngIf="emailID.errors?.['required'] && emailID.touched">EmailID is required {{userName}}</span>
+            <span *ngIf="emailID.errors?.['required'] && emailID.touched && emailID.dirty">EmailID is required {{userName}}</span>
             <span *ngIf="emailID.errors?.['pattern']">Email not found</span>
         </div>
         <div class="inputDiv">
@@ -20,6 +20,11 @@
             <span *ngIf="passwordError.errors?.['minlength']">Password shold be 8 characters</span>
         </div>
         <button type="submit"  [disabled]="form.invalid" >Login</button>
+        <div class="formStateDiv">  
+            <p *ngIf="form.touched">Form is  Toched</p>
+            <p *ngIf="form.dirty">Form is Dirty</p>
+            <p *ngIf="form.valid"> Form is Valid</p>
+        </div>
     </form>
 </div>
 

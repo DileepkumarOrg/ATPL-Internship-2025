@@ -46,7 +46,7 @@ button:disabled{
     border-radius: 10px;
     padding: 5px;
     background-color: rgb(105, 42, 53);
-    color: white;
+    color: gray;
     cursor: not-allowed;
 }
 

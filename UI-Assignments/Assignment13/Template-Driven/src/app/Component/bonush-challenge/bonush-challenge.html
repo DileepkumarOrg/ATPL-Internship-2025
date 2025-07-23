@@ -1,1 +1,65 @@
-<p>bonush-challenge works!</p>
+<div class="container">
+  <form #form="ngForm">
+    <div class="form-box">
+      <h2>Student Registration Form</h2>
+
+      <label>Full Name</label>
+      <input type="text" name="fullName" [(ngModel)]="obj.fullName" #fNameError="ngModel" required placeholder="Enter your fullname">
+      <span class="error" *ngIf="fNameError.errors?.['required'] && fNameError.touched">Full name is required</span>
+
+      <label>Email ID</label>
+      <input type="email" name="email" [(ngModel)]="obj.email" #emailError="ngModel" required pattern="^[\w.+\-]+@[a-zA-Z0-9.-]+\.com$" placeholder="Enter your email">
+      <span class="error" *ngIf="emailError.errors?.['required'] && emailError.touched">Email is required</span>
+      <span class="error" *ngIf="emailError.errors?.['pattern'] && emailError.touched">Invalid email format</span>
+
+      <label>Gender</label>
+      <div class="radio-div">
+        <label><input type="radio" name="gender" [(ngModel)]="obj.gender" required #genderError="ngModel" value="Male"> Male</label>
+        <label><input type="radio" name="gender" [(ngModel)]="obj.gender" value="Female"> Female</label>
+        <label><input type="radio" name="gender" [(ngModel)]="obj.gender" value="Others"> Others</label>
+      </div>
+      <span class="error" *ngIf="genderError.errors?.['required'] && genderError.touched">Gender is required</span>
+
+      <label>Course</label>
+      <select name="course" [(ngModel)]="obj.course" #courseError="ngModel" required>
+        <option disabled selected value="">--Select Course--</option>
+        <option value="Angular">Angular</option>
+        <option value="React">React</option>
+        <option value="Vue">Vue</option>
+      </select>
+      <span class="error" *ngIf="courseError.errors?.['required'] && courseError.touched">Course is required</span>
+
+      <label>Comments</label>
+      <textarea name="comments" [(ngModel)]="obj.comments" placeholder="Add comments if any"></textarea>
+
+      <div class="btn-div">
+        <button id="register" type="submit" [disabled]="form.invalid" (click)="register(form)">Register</button>
+        <button id="reset" type="button" (click)="resetForm(form)">Reset</button>
+        <button id="display" type="button" (click)="display()">Display Data</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div *ngIf="isDisplay" class="table-div">
+    <h3>Registered Student Details:</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Student Email</th>
+          <th>Gender</th>
+          <th>Course</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of studentData">
+          <td>{{ student.fullName }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.gender }}</td>
+          <td>{{ student.course }}</td>
+          <td>{{ student.comments }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
