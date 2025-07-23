@@ -19,9 +19,9 @@
             <span *ngIf="passwordError.errors?.['required'] && passwordError.touched">Password is required</span>
             <span *ngIf="passwordError.errors?.['minlength']">Password shold be 8 characters</span>
         </div>
-        <div>
-            <button type="submit"  [disabled]="form.invalid" >Login</button>
-            <button>Reset</button>
+        <div class="buttonDiv">
+            <button id="submit" type="submit"  [disabled]="form.invalid" >Login</button>
+            <button id="reset" type="reset" >Reset</button>
         </div>
     </form>
 </div>

@@ -17,7 +17,7 @@
             <span *ngIf="feedbackError.errors?.['required'] && feedbackError.touched" >Choose one</span>
             <div class="inputDiv">
                 <label>Comments</label>
-                <textarea rows="4" cols=""  required name="comment" placeholder="Enter your Comments"> </textarea>
+                <textarea rows="4" required name="comment" placeholder="Enter your Comments"> </textarea><br>
             </div>
             <button  [disabled]="form.invalid" (click)="onSubmit()">Submit </button>
         </div>
@@ -26,4 +26,4 @@
         <p>Thank You..! You selected Feedback type is {{feedback}}</p>
     </div>
 </div>
-
+    
