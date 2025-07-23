@@ -1,0 +1,14 @@
+<div class="container">
+    <form id="form" [formGroup]="form" (ngSubmit)="onLog()">
+        <h1> Task 1: Basic Reactive Form</h1>
+        <div class="input-Div">
+            <label class="label-class" for="name">Name</label>
+            <input class="input-class" name="name" type="text" placeholder="Enter your Name" formControlName="name">
+            <label class="label-class">Email Id</label>
+            <input class="input-class" type="email" placeholder="Enter Mail ID" formControlName="email">
+            <label class="label-class" for="password"></label>
+            <input class="input-class" type="password" placeholder="Enter your password" formControlName="password">
+            <button id="loginButton" type="submit">Login</button>
+        </div>
+    </form>
+</div>

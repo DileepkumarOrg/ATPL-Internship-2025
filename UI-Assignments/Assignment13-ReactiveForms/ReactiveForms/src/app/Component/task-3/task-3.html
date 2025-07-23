@@ -1,0 +1,26 @@
+<div class="container">
+    <form id="form" [formGroup]="form" >
+        <h1>  Task 2: Add Validation </h1>
+        <div class="input-Div">
+            <label class="label-class" for="name">Name</label>
+            <input class="input-class" name="name" type="text" placeholder="Enter your Name" formControlName="name">
+            <span class='error' *ngIf="form.controls['name'].errors?.['required'] && form.controls['name'].touched">Name is required</span>
+            <label class="label-class">Email Id</label>
+            <input class="input-class" type="email" placeholder="Enter Mail ID" formControlName="email">
+            <span class='error' *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].touched">Email is reuires</span>
+            <span class='error' *ngIf="form.controls['email'].errors?.['email']">Enter correct mail</span>
+            <label class="label-class" for="password">Password</label>
+            <input class="input-class" type="password" placeholder="Enter your password" formControlName="password">
+            <span class='error' *ngIf="form.controls['password'].errors?.['required'] && form.controls['password'].touched">Password is required</span>
+            <span class='error' *ngIf="form.controls['password'].errors?.['minlength']">Minimum 6 characyers </span>
+            <div>
+                <button id="loginButton" type="submit">Login</button>
+                <button id="resetButton" type="button" (click)="reset()">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
