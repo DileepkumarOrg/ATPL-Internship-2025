@@ -1,0 +1,32 @@
+<div class="container">
+    <form id="form" [formGroup]="form" (ngSubmit)="save()">
+        <h1> Login Page UI </h1>
+        <div class="input-Div">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Enter Name" formControlName="name">
+                <mat-error *ngIf="form.controls['name'].errors?.['required'] && form.controls['name'].touched">Name is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label >Emial</mat-label>
+                <input matInput placeholder="Enter Email" formControlName="email">
+                <mat-error *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].touched">Email is required</mat-error>
+                <mat-error *ngIf="form.controls['email'].errors?.['email']">Email not found</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput placeholder="Enter Phone Number" formControlName="phone">
+                <mat-error *ngIf="form.controls['phone'].errors?.['required'] && form.controls['phone'].touched"></mat-error>
+            </mat-form-field>
+
+
+            
+            <button matButton="filled" [disabled]="form.invalid">Submit</button>
+        </div>
+    </form>
+</div>
+
+

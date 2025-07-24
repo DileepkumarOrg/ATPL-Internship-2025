@@ -1,0 +1,25 @@
+<div class="container">
+    <form id="form" [formGroup]="form" (ngSubmit)="save()">
+        <h1> Login Page UI </h1>
+        <div class="input-Div">
+
+            <mat-form-field appearance="outline">
+                <mat-label >Emial</mat-label>
+                <input matInput placeholder="Enter Email" formControlName="email">
+                <mat-error *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].touched">Email is required</mat-error>
+                <mat-error *ngIf="form.controls['email'].errors?.['email']">Email not found</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Enter Password" formControlName="password">
+                <mat-error *ngIf="form.controls['password'].errors?.['required'] && form.controls['password'].touched">Password is required</mat-error>
+                <mat-error *ngIf="form.controls['password'].errors?.['minlength']">Password minimum 6 Charactes</mat-error>
+            </mat-form-field>
+            
+            <button matButton="filled" [disabled]="form.invalid">Submit</button>
+        </div>
+    </form>
+</div>
+
+

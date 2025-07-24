@@ -1,0 +1,17 @@
+
+.nav-class{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+}
+.active{
+    background-color: rgb(200, 146, 211);
+}
+
+button{
+    font-size: 25px;
+    padding: 30px 40px;
+}
+
