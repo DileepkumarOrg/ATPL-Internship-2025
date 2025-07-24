@@ -3,14 +3,15 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-task-4',
+  selector: 'app-bonus',
   imports: [ReactiveFormsModule,CommonModule],
-  templateUrl: './task-4.html',
-  styleUrl: './task-4.css'
+  templateUrl: './bonus.html',
+  styleUrl: './bonus.css'
 })
-export class Task4 {
+export class Bonus {
   form : FormGroup = new FormGroup({
-    name : new FormControl('',[Validators.required]),
+    firstName : new FormControl('',[Validators.required]),
+    lastName : new FormControl('',[Validators.required]),
     email : new FormControl('',[Validators.required,Validators.email]),
     address  : new FormGroup({
       street : new FormControl('',[Validators.required]),
@@ -26,5 +27,6 @@ export class Task4 {
     console.log(this.form.value)
   }
 }
+
 
 

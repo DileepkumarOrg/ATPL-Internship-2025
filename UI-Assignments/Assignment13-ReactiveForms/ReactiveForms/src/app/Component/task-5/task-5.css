@@ -1,0 +1,75 @@
+.container {
+  width: 400px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.input-Div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+
+.numbers-Div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    
+}
+.phone-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #5e9bfc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button-Div{
+    display: flex;
+    justify-content: space-around;
+    column-gap: 20px;
+}
+
+button:hover {
+  background-color: #407de8;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+}
+

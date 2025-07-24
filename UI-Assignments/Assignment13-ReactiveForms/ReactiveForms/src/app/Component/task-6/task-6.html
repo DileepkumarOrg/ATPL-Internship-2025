@@ -1,1 +1,24 @@
-<p>task-6 works!</p>
+<div class="container">
+  <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+    <h2> Task 6: Custom Validator</h2>
+
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+    <div class="error" *ngIf="password?.touched && password?.invalid">
+      <div *ngIf="password?.errors?.['required']">Password is required.</div>
+      <div *ngIf="password?.errors?.['minlength']">Min 6 characters.</div>
+    </div>
+
+    <label>Confirm Password</label>
+    <input type="password" formControlName="confirmPassword" />
+    <div class="error" *ngIf="confirmPassword?.touched && confirmPassword?.invalid">
+      <div *ngIf="confirmPassword?.errors?.['required']">Confirm password is required.</div>
+    </div>
+
+    <div class="error" *ngIf="passwordForm.errors?.['passwordMismatch'] && passwordForm.touched">
+      Passwords do not match.
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

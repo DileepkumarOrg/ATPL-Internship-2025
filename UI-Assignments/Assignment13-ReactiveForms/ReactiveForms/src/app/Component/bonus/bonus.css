@@ -2,15 +2,16 @@
 .container {
     max-width: 500px;
     margin: 40px auto;
-    background: rgb(249, 249, 249);
+    background: #f9f9f9;
     padding: 30px 40px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    font-family: "Segoe UI", sans-serif;
 }
 
 h1 {
     text-align: center;
-    color: rgb(74, 20, 140);
+    color: #4a148c;
     margin-bottom: 25px;
 }
 
@@ -18,7 +19,7 @@ h1 {
     display: block;
     margin-top: 15px;
     margin-bottom: 5px;
-    color: rgb(13, 71, 161);
+    color: #0d47a1;
     font-weight: 600;
 }
 
@@ -26,17 +27,18 @@ h1 {
     width: 100%;
     padding: 10px;
     font-size: 15px;
-    border: 2px solid rgb(187, 222, 251);
+    border: 2px solid #bbdefb;
     border-radius: 8px;
     outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .input-class:focus {
-    border-color: rgb(41, 98, 255);
+    border-color: #2962ff;
 }
 
 .error {
-    color: red;
+    color: #d32f2f;
     font-size: 13px;
     margin-top: 4px;
     display: block;
@@ -54,19 +56,19 @@ h1 {
 }
 
 #loginButton {
-    background-color: green;
+    background-color: #2e7d32;
     color: white;
 }
 
 #loginButton:hover {
-    background-color: rgb(0, 95, 0);
+    background-color: #1b5e20;
 }
 
 #resetButton {
-    background-color: red;
+    background-color: #c62828;
     color: white;
 }
 
 #resetButton:hover {
-    background-color: rgb(110, 0, 0);
+    background-color: #8e0000;
 }

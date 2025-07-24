@@ -1,1 +1,28 @@
- Task 5: Dynamic FormArray
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <h2>Task 5: Dynamic FormArray - Phone Numbers</h2>
+    <div class="input-Div">
+        <label for="name">Name</label>
+        <input type="text" placeholder="Enter your Name" formControlName="name">
+        <span class="error" *ngIf="form.controls['name'].errors?.['required'] && form.controls['name'].touched">Name is required</span>
+    </div>
+    <div formArrayName="phones">
+      <div class="phone-group" *ngFor="let phone of phoneForms.controls; let i = index" [formGroupName]="i">
+        <div class="numbers-Div">
+            <input type="number" formControlName="number" placeholder="Enter phone number"/>
+            <span class="error" *ngIf="phone.get('number')?.touched && phone.get('number')?.hasError('required')">Phone number is required</span>
+            <span class="error"  *ngIf="phone.get('number')?.hasError('min')">Enter correct phone number</span>
+            <span class="error"  *ngIf="phone.get('number')?.hasError('max')">Enter correct phone number</span>
+        </div>
+        <button type="button" (click)="removePhone(i)" *ngIf="phoneForms.length > 1">Delete </button><br>
+      </div>
+    </div>
+    <div  class="button-Div">
+        <button type="button" (click)="addPhone()"> Add Phone</button>
+        <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+

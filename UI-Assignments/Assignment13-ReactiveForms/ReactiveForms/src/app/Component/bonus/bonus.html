@@ -1,11 +1,13 @@
 <div class="container">
   <form id="form" [formGroup]="form" (ngSubmit)="onLog()">
-    <h1>Task 4: Nested FormGroup</h1>
+    <h1>Task: Create a “Student Registration” reactive form</h1>
     <div class="input-Div">
-      <label class="label-class" for="name">Name</label>
-      <input class="input-class" name="name" type="text" placeholder="Enter your Name" formControlName="name">
-      <span class="error" *ngIf="form.controls['name'].errors?.['required'] && form.controls['name'].touched">Name is required</span>
-
+      <label class="label-class" for="firstName">FirstName</label>
+      <input class="input-class" firstName="firstName" type="text" placeholder="Enter your firstName" formControlName="firstName">
+      <span class="error" *ngIf="form.controls['firstName'].errors?.['required'] && form.controls['firstName'].touched">FirstName is required</span>
+      <label class="label-class" for="firstName">LastName</label>
+      <input class="input-class" firstName="lasttName" type="text" placeholder="Enter your lastName" formControlName="lastName">
+      <span class="error" *ngIf="form.controls['lastName'].errors?.['required'] && form.controls['lastName'].touched">LastName is required</span>
       <label class="label-class">Email Id</label>
       <input class="input-class" type="email" placeholder="Enter Mail ID" formControlName="email">
       <span class="error" *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].touched">Email is required</span>
@@ -25,6 +27,7 @@
         <span class="error" *ngIf="form.get('address.zip')?.errors?.['minlength']">Minimum Length is 6</span>
         <span class="error" *ngIf="form.get('address.zip')?.errors?.['maxlength']">Maximum Length is 6</span>
       </div>
+      
 
       <div>
         <button id="loginButton" type="submit">Login</button>
@@ -33,3 +36,7 @@
     </div>
   </form>
 </div>
+
+
+
+
