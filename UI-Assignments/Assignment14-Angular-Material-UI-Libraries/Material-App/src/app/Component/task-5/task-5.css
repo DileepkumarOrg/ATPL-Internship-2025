@@ -1,0 +1,37 @@
+.container {
+  height: 100vh;
+}
+
+mat-toolbar{
+  background-color: cadetblue;
+}
+
+
+.sidenav {
+  width: 200px;
+  background-color: rgb(227, 187, 187);
+}
+
+mat-flat-button{
+    width: 100px;
+}
+.sidenav-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.card {
+  max-width: 400px;
+}
+
+table {
+  width: 100%;
+}
+

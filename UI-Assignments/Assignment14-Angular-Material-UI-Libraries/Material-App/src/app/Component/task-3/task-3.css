@@ -8,12 +8,12 @@ mat-toolbar{
     margin-top: 10px;
 }
 
-.example-container {
+.container {
   width: 200px;
   height: 800px;
 }
 
-.example-sidenav{
+.sidenav{
   display: flex;
   height: 100%;
   align-items: center;

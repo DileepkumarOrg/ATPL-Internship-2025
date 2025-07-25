@@ -6,19 +6,14 @@
   <span class="example-spacer"></span>
 </mat-toolbar>
 
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" >
     <mat-list role="list">
         <mat-list-item role="listitem">Dash Board</mat-list-item>
         <mat-list-item role="listitem">Profile</mat-list-item>
         <mat-list-item role="listitem">About</mat-list-item>
     </mat-list>
   </mat-drawer>
-
-  <div class="example-sidenav-content">
-    <button type="button" matButton (click)="drawer.close()">
-    </button>
-  </div>
 
 </mat-drawer-container>
 
