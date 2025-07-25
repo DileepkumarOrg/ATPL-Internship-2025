@@ -1,5 +1,5 @@
 <div class="container">
-    <form id="form" [formGroup]="form" (ngSubmit)="save()">
+    <form id="form" [formGroup]="form" (ngSubmit)="openSnackBar()" >
         <h1> Login Page UI </h1>
         <div class="input-Div">
 
@@ -19,12 +19,12 @@
             <mat-form-field appearance="outline">
                 <mat-label>Phone Number</mat-label>
                 <input matInput placeholder="Enter Phone Number" formControlName="phone">
-                <mat-error *ngIf="form.controls['phone'].errors?.['required'] && form.controls['phone'].touched"></mat-error>
+                <mat-error *ngIf="form.controls['phone'].errors?.['required'] && form.controls['phone'].touched">Phone Number is required</mat-error>
+                <mat-error *ngIf="form.controls['phone'].errors?.['min']">Phone number min 10 digits</mat-error>
+                <mat-error *ngIf="form.controls['phone'].errors?.['max']">Phone number max 10 digits</mat-error>
             </mat-form-field>
 
-
-            
-            <button matButton="filled" [disabled]="form.invalid">Submit</button>
+            <button mat-raised-button color="primary" [disabled]="form.invalid">Submit</button>
         </div>
     </form>
 </div>
