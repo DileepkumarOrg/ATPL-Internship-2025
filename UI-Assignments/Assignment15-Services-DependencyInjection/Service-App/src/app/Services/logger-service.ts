@@ -4,5 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoggerService {
-  
+  detailsFetched() {
+    console.log('Weather details fetched');
+  }
+  log(msg:string){
+    console.log(msg);
+  }
 }

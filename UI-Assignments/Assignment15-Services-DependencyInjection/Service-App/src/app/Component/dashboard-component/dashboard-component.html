@@ -1,8 +1,10 @@
-<div>
-    <div>
-        <p>{{data.city}}</p>
-        <p>{{data.temperature}}</p>
-        <p>{{data.description}}</p>
-        <p>{{data.getWeather()}}</p>
+<div class="container">
+    <div class="mainDiv">
+        <p>City Name : {{weather.city}}</p>
+        <p>Temperature : {{weather.temperature}}</p>
+        <p>Description : {{weather.description}}</p>
+    </div>
+    <div *ngIf="errMessage" >
+    <p style="color: red;">{{ errMessage }}</p>
     </div>
 </div>
