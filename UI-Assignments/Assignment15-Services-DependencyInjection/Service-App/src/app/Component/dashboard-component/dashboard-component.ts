@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WeatherService } from '../../Services/weather-service';
+import { response } from 'express';
 
 @Component({
   selector: 'app-dashboard-component',
@@ -9,8 +10,9 @@ import { WeatherService } from '../../Services/weather-service';
 })
 export class DashboardComponent {
   data:any;
-  constructor (private dummy: WeatherService){
-    this.data = this.dummy.data;
-    // console.log(this.data.getWeather);
+  constructor (private weatherData: WeatherService){
+    this.weatherData.getWeather().subscribe((response)=>{
+      this.data = response;
+    })
   }
 }

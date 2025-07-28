@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class WeatherService {
     temperature: 28, 
     description: 'Partly cloudy' 
     } 
-    getWeather(){
-      return of(this.data)
-    }
+    getWeather(): Observable<any> {
+    return of(this.data);
+  }
 }
