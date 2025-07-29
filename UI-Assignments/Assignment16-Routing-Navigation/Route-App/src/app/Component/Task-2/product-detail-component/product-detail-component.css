@@ -8,7 +8,7 @@ button{
     padding: 10px;
     position: fixed;
     bottom: 50%;
-    right: 50%;
+    right: 45%;
 }
 
 
@@ -16,3 +16,13 @@ button:hover{
     background-color: rgb(209, 103, 65);
     cursor: pointer;
 }
+
+
+
+p {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(154, 52, 18);
+  text-align: center;
+}
+

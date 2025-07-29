@@ -1,12 +1,12 @@
 
 
-
-<form>
-    <input type="text" placeholder="Username" name="username" [(ngModel)]="username">
-    <input type="password" placeholder="Password" name="Password" [(ngModel)]="password">
-    <button class="submit" (click)="login()" routerLink="/admin-component" >LogIn</button>
-</form>
-
+<div class="formDiv">
+    <form>
+        <input type="text" placeholder="Username" name="username" [(ngModel)]="username">
+        <input type="password" placeholder="Password" name="Password" [(ngModel)]="password">
+        <button class="submit" (click)="login()" routerLink="/admin-component" >LogIn</button>
+    </form>
+</div>
     <p> UserName : 'admin' Password : 'password'</p>
 
 
