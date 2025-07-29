@@ -34,11 +34,7 @@ a{
 }
 
 
-.next-Task-Div{
-    position: fixed;
-    top: 100px;
-    right: 80px;
-}
+
 
 
 button{
@@ -46,7 +42,10 @@ button{
     color: white;
     border: none;
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px;position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 100px;
 }
 button:hover{
     background-color: rgb(255, 111, 59);

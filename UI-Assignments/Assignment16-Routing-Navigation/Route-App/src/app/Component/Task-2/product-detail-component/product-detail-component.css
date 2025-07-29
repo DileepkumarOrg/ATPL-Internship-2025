@@ -1,0 +1,18 @@
+
+button{
+    background-color: coral;
+    width: 100px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+}
+
+
+button:hover{
+    background-color: rgb(209, 103, 65);
+    cursor: pointer;
+}

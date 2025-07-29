@@ -1,0 +1,22 @@
+
+button{
+    background-color: coral;
+    width: 100px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;position: fixed;
+    bottom: 50px;
+}
+
+.nextTask{
+    right: 50px;
+}
+button:hover{
+    background-color: rgb(255, 111, 59);
+    color: yellow;
+}
+
+.previousTask{
+    left: 50px;
+}

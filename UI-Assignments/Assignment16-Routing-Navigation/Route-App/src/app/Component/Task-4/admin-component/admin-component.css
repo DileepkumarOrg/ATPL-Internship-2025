@@ -1,0 +1,16 @@
+button{
+    background-color: tomato;
+    position:fixed ;
+    top: 25px;
+    right: 50px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px;
+    border: 1px solid tomato;
+    color: white;
+}
+button:hover{
+    color: yellow;
+    cursor: pointer;
+}

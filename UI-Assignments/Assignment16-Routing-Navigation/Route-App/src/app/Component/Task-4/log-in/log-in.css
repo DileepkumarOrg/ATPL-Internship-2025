@@ -1,0 +1,62 @@
+
+.previousTask, .nextTask{
+    background-color: coral;
+    width: 100px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;position: fixed;
+    bottom: 50px;
+}
+
+.nextTask{
+    right: 50px;
+}
+.previousTask:hover, .nextTask:hover{
+    background-color: rgb(255, 111, 59);
+    color: yellow;
+}
+
+.previousTask{
+    left: 50px;
+}
+
+form{
+    margin-left: 41%;
+    margin-top: 18%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 15%;
+    font-size: 50px;
+    row-gap: 20px;
+    background-color: rgb(201, 143, 255);
+    border-radius: 10px;
+    box-shadow: 10px 0 0 0 black;
+}
+
+input{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+.submit{
+    font-size: 20px;
+    padding: 10px;
+    background-color: rgb(0, 170, 0);
+    border: 1px solid rgb(0, 109, 0);
+    color: white;
+    border-radius: 10px;
+}
+
+.submit:hover{
+    background-color: green;
+    cursor: pointer;
+}
+
+p{
+    color: gray;
+    text-align: center;
+}
