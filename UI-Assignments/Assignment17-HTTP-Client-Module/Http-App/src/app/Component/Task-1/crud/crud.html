@@ -1,0 +1,24 @@
+
+<div>
+  <div>
+    <table>
+      <thead>
+        <tr><th>Id</th><th>Name</th><th>Email</th></tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let data of demoData">
+          <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td><button>Delete</button></td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <button routerLink="/add">Add User</button>
+  <button routerLink="/update">Update User</button>
+  <button routerLink="/delete">Delete User</button>
+</div>
+

@@ -7,6 +7,7 @@ import { BuiltInPipesComponent } from './component/built-in-pipes-component/buil
 import { TemplateForm } from './component/template-form/template-form';
 import { ReactiveForm } from './component/reactive-form/reactive-form';
 import { ServiceComponent } from './component/service-component/service-component';
+import { Crud } from './component/crud/crud';
 
 export const routes: Routes = [
     {path:'',redirectTo:'user',pathMatch:'full'},
@@ -17,6 +18,7 @@ export const routes: Routes = [
     {path:'template-form',component:TemplateForm},
     {path:'reactive-form',component:ReactiveForm},
     {path:'service-component',component:ServiceComponent},
+    {path:'crud',component:Crud},
     {path:'**',component:PageNotFoundComponent}
     
 ];
