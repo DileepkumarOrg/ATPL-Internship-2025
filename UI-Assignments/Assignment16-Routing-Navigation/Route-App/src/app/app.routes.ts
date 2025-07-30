@@ -32,6 +32,8 @@ export const routes: Routes = [
   },
   {path:'login',component:LogIn},
   {path:'admin-component',component:AdminComponent, canActivate:[authGuardGuard]},
+  {path:'admin',loadChildren:()=>import ('./Module/admin/admin-module').then(a=>a.AdminModule)},
+  {path:'user',loadChildren:()=>import('./Module/user/user-module').then(b=> b.UserModule)},
   //{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {path:'**',component:PageNotFoundComponent}
     

@@ -1,0 +1,48 @@
+p {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(81, 132, 76);
+  background-color: rgb(179, 179, 179);
+  color: black;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+div{
+    display: flex;
+    column-gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.admin-Module,.user-Module{
+    background-color: rgb(0, 179, 0);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+}
+
+.admin-Module:hover,.user-Module:hover{
+    background-color: rgb(0, 116, 0);
+    font-weight: bold;
+    padding: 12px;
+}
+
+.previousTask{
+    background-color: coral;
+    width: 100px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;position: fixed;
+    bottom: 50px;
+    left: 50px;
+}
+
+.previousTask:hover{
+    background-color: rgb(255, 111, 59);
+    color: yellow;
+}
