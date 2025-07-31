@@ -1,0 +1,18 @@
+
+<div class="task-container">
+  <h2>User Profile Fetcher</h2>
+
+  <button (click)="fetch()">Fetch User Profile</button>
+
+  <p class="info-text">
+    Click the button to attempt fetching the user profile. A message will appear via snackbar.
+  </p>
+
+  <div *ngIf="userProfile">
+    <h3>Profile Data:</h3>
+    <p><strong>Name:</strong> {{ userProfile.name }}</p>
+    <p><strong>Age:</strong> {{ userProfile.age }}</p>
+  </div>
+
+  
+</div>

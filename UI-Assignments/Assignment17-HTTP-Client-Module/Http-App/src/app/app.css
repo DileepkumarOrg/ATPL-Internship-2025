@@ -1,0 +1,16 @@
+button{
+  background-color: cadetblue;
+  color: white;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover{
+  background-color: rgb(72, 121, 122);
+}
+
+
+.active{
+  background-color: aqua;
+}

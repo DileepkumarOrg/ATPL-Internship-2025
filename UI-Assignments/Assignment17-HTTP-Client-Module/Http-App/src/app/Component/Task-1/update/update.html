@@ -1,1 +1,30 @@
-<p>update works!</p>
+<div class="container" *ngIf="form">
+  <form [formGroup]="form" >
+    <h3>Update User Form</h3>
+
+    <div class="inputDiv">
+      <input type="text" placeholder="Name" formControlName="name" />
+      <span *ngIf="form.controls['name'].errors?.['required'] && form.controls['name'].touched">
+        Name is required
+      </span>
+
+      <input type="email" placeholder="Email" formControlName="email" />
+      <span *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].touched">
+        Email is required
+      </span>
+      <span *ngIf="form.controls['email'].errors?.['email'] && form.controls['email'].touched">
+        Invalid email format
+      </span>
+
+      <div>
+        <button type="button" routerLink="/crud" [disabled]="form.invalid" class="addButton" (click)="submit()">Update</button>
+        <button type="reset" class="resetButton">Reset</button>
+      </div>
+
+      <button type="button" class="backButton" routerLink="/crud">Back</button>
+    </div>
+  </form>
+</div>
+
+
+

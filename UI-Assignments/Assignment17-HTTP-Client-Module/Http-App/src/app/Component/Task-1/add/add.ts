@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DataService } from '../../../Services/data-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-add',
-  imports: [CommonModule,ReactiveFormsModule ],
+  imports: [CommonModule,ReactiveFormsModule,RouterLink],
   templateUrl: './add.html',
   styleUrl: './add.css'
 })
@@ -19,8 +20,8 @@ export class Add {
     const obj = this.form.value;
     this.addData.add(obj).subscribe(res=>{
       this.addData.getData();
-      console.log(res)
     })
+    this.form.reset();
   }
 }
 

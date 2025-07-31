@@ -20,4 +20,12 @@ export class DataService {
   add(obj:object){
     return this.http.post(this.url,obj);
   }
+
+  getUserDataByID(id:number){
+    return this.http.get(`${this.url}/${id}`);
+  }
+
+  update(id:number,data:object){
+    return this.http.put(`${this.url}/${id}`,data);
+  }
 }

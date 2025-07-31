@@ -1,18 +1,22 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, signal } from '@angular/core';
 import { DataService } from '../../../Services/data-service';
 import { InterfaceUserData } from '../../../Interface/interface-user-data';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router'; 
+   
+
 
 @Component({
   selector: 'app-crud',
   imports: [CommonModule,RouterLink],
   templateUrl: './crud.html',
-  styleUrl: './crud.css'
+  styleUrl: './crud.css',
+     
 })
 export class Crud implements OnInit , OnChanges{
+  demo=signal<InterfaceUserData[]>([]);
   demoData : InterfaceUserData[]=[];
-  constructor(private user : DataService){}
+  constructor(private user : DataService ,private route : Router){}
   ngOnInit(){
     this.getAllData();
   }
@@ -21,6 +25,7 @@ export class Crud implements OnInit , OnChanges{
   }
   getAllData(){
     this.user.getData().subscribe(res =>{
+      this.demo.set(res)
       this.demoData = res;
     })
   }
@@ -29,6 +34,15 @@ export class Crud implements OnInit , OnChanges{
     this.user.delete(id).subscribe(()=>{
       this.getAllData();
     });
-    this.getAllData();
+     
+  }
+
+  
+  update(id:number){
+    this.user.getUserDataByID(id).subscribe(() =>{
+      this.route.navigate(['/update',id])
+    })
   }
 }
+
+
