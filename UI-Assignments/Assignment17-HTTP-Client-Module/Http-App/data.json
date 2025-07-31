@@ -1,11 +1,6 @@
 {
   "users": [
     {
-      "name": "Dileep",
-      "email": "dileepkumar@gmail.com",
-      "id": 1
-    },
-    {
       "id": 2,
       "name": "Naveen",
       "email": "naveen@gmail.com"
@@ -26,9 +21,14 @@
       "id": 4
     },
     {
-      "name": "sfvdas",
-      "email": "vdav@dfhn",
+      "name": "sfbvfsbfvwerf",
+      "email": "sfbfs@rhf",
       "id": 5
+    },
+    {
+      "name": "fdsbrewad",
+      "email": "sfbwr@rf",
+      "id": 6
     }
   ]
 }
