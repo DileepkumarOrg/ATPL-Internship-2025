@@ -8,12 +8,11 @@ import { loggingInterceptor } from './Interceptors/logging-interceptor';
 import {  authInterceptorInterceptor } from './Interceptors/auth-interceptor-interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
+  providers: [    
+    provideClientHydration(),
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes), provideClientHydration(withEventReplay()),
-
-  
     provideHttpClient(withInterceptors([loggingInterceptor,authInterceptorInterceptor])),
 
   ]

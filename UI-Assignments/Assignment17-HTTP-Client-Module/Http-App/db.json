@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "dileep",
+      "email": "dileep@gmail.com"
+    },
+    {
+      "id": 2,
+      "username": "mahesh",
+      "email": "mahesh@mahesh.com"
+    },
+    {
+      "id": 3,
+      "username": "naveen",
+      "email": "naveen@naveen.com"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": 120000,
+      "description": "I7 Series"
+    },
+    {
+      "id": 2,
+      "name": "Mobile",
+      "price": 15000,
+      "description": "128 GB"
+    },
+    {
+      "id": 3,
+      "name": "Mouse",
+      "price": 5,
+      "description": "5 Buttons"
+    },
+    {
+      "id": "39f3",
+      "name": "gnegn",
+      "price": 55,
+      "description": "rnhhn"
+    },
+    {
+      "id": "f2c0",
+      "name": "",
+      "price": null,
+      "description": ""
+    }
+  ]
+}
