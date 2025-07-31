@@ -3,7 +3,7 @@
   <div>
     <table>
       <thead>
-        <tr><th>Id</th><th>Name</th><th>Email</th></tr>
+        <tr><th>Id</th><th>Name</th><th>Email</th><th>Delete</th></tr>
       </thead>
       <tbody>
         <ng-container *ngFor="let data of demoData">
@@ -11,14 +11,13 @@
             <td>{{data.id}}</td>
             <td>{{data.name}}</td>
             <td>{{data.email}}</td>
-            <td><button>Delete</button></td>
+            <td><button type="button" (click)="delete(data.id)">Delete</button></td>
           </tr>
         </ng-container>
       </tbody>
     </table>
   </div>
   <button routerLink="/add">Add User</button>
-  <button routerLink="/update">Update User</button>
-  <button routerLink="/delete">Delete User</button>
+  <button routerLink="/update">Update User</button> 
 </div>
 

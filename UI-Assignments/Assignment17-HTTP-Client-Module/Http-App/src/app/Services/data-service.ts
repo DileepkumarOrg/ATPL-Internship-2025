@@ -12,4 +12,12 @@ export class DataService {
   getData(){
     return this.http.get<InterfaceUserData[]>(this.url);
   }
+
+  delete(id:number){
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
+  add(obj:object){
+    return this.http.post(this.url,obj);
+  }
 }
