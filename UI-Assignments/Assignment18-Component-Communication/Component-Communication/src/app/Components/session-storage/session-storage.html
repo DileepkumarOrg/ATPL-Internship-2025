@@ -1,0 +1,12 @@
+<div>
+    <form id="loginForm" [formGroup]="loginForm">
+        <h1>Login Form</h1>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" placeholder="Username" name="username" formControlName="username"  >
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" name="password" formControlName="password">
+            <button type="button" routerLink="/LocalStorage" (click)="login()" [disabled]="loginForm.invalid">Login</button>
+        </div>
+    </form>
+</div>

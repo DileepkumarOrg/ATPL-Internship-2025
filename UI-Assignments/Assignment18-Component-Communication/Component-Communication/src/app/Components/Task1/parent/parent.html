@@ -1,0 +1,13 @@
+
+<div class="container">
+    <div class="parent-Div">
+        <p>Parent Component</p>
+        <label>Select Student</label>
+        <select [(ngModel)]="student">
+            <option disabled selected>Select Students</option>
+            <option *ngFor="let student of studentNames" [value]="student">{{student}}</option>
+        </select><p>{{parentMessage}}</p>
+    </div>
+    <app-child  [childMessage]="student" (parentMessage)="receiveFromChild($event)"></app-child>
+</div>
+
