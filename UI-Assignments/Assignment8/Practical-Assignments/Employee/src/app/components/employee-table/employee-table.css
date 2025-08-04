@@ -1,0 +1,39 @@
+.container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: rgb(0, 123, 255);
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid rgb(221, 221, 221);
+  text-align: left;
+}
+
+
+button {
+  padding: 10px 20px;
+  background-color: rgb(0, 123, 255);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(0, 86, 179);
+}

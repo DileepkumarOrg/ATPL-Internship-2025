@@ -3,5 +3,7 @@ import { EmployeeDashBoard } from './components/employee-dash-board/employee-das
 import { EmployeeForm } from './components/employee-form/employee-form';
 import { EmployeeTable } from './components/employee-table/employee-table';
 export const routes: Routes = [
-    {path: "", component: EmployeeDashBoard},{path: "EmployeeForm", component: EmployeeForm},{path: "EmployeeTable", component: EmployeeTable}
+    {path: "", component: EmployeeDashBoard},
+    {path: "EmployeeForm", component: EmployeeForm},
+    {path: "EmployeeTable", component: EmployeeTable}
 ];

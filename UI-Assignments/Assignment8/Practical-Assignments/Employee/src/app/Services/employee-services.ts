@@ -4,5 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EmployeeServices {
+  data: object[] = [];
   
+  addEmployee (obj: object){
+    this.data.push(obj)
+  }
 }
