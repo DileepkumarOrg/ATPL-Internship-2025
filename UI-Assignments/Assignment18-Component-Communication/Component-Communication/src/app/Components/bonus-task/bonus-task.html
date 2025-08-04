@@ -3,13 +3,13 @@
     <div class="parent-Div">
         <p>Parent Component</p>
         <label>Select Student</label>
-        <select [(ngModel)]="student">
+        <select [(ngModel)]="student"  (ngModelChange)="saveLocal($event)">
             <option disabled selected>Select Students</option>
             <option *ngFor="let student of studentNames" [value]="student">{{student}}</option>
         </select><span>{{parentMessage}}</span>
     </div>
     <div class="child_Div">   
-        <app-child  [childMessage]="student" (parentMessage)="receiveFromChild($event)"></app-child>
+        <bonus-child  [childMessage]="student" (parentMessage)="receiveFromChild($event)"></bonus-child>
     </div>
 </div>
 

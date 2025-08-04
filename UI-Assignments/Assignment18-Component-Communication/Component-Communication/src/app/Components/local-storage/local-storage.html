@@ -3,7 +3,7 @@
     <div >
         <form>
             <div class="main-div">
-                <button class="theme-Button" (click)="isDark=!isDark" (click)="toggle()">{{isDark?"Light":"Dark"}}</button>
+                <button class="theme-Button" #dark (click)="isDark=!isDark" (click)="toggle()">{{isDark?"Light":"Dark"}}</button>
                 <div>
                     <label>Name</label>
                     <input type="text" placeholder="Name">

@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <form id="loginForm" [formGroup]="loginForm">
         <h1>Login Form</h1>
         <div>
@@ -6,7 +6,11 @@
             <input type="text" placeholder="Username" name="username" formControlName="username"  >
             <label for="password">Password</label>
             <input type="password" placeholder="Password" name="password" formControlName="password">
-            <button type="button" routerLink="/LocalStorage" (click)="login()" [disabled]="loginForm.invalid">Login</button>
+            <button type="button" class="loginButton" (click)="login()" [disabled]="loginForm.invalid">Login</button>
+            <button type="button" class="logoutButton" (click)="logout()" >Logout</button>
+        </div>
+        <div *ngIf="isLogged">
+            <h3>{{welcomeMessage}} </h3>
         </div>
     </form>
 </div>
