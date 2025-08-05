@@ -25,7 +25,7 @@ class First {
             }
         }
         s1.close();
-        System.out.println("Count of Prime Numbers " + c);
+        System.out.println("Count of Prime Numbers between 0 to "+num+" is " + c);
     }
 }
 
