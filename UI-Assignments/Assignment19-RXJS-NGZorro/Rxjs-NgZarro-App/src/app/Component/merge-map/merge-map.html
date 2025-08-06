@@ -1,0 +1,14 @@
+<h2>Products</h2>
+
+<nz-list [nzBordered]="true">
+  <nz-list-item *ngFor="let product of products" (click)="onProductClick(product)">
+    <div class="product-Details">
+        <div>
+        <strong>{{ product.item }}</strong>
+        </div>
+        <div *ngIf="product.detail">
+        <em>{{ product.detail }}</em>
+        </div>
+    </div>
+  </nz-list-item>
+</nz-list>

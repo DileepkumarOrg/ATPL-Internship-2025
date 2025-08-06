@@ -16,7 +16,7 @@ export class Task3 {
   userList: any[] = [];
 
   constructor(private http: HttpClient) {
-    this.reload$
+      this.reload$
       .pipe(
         switchMap(() => {
           return this.http.get<any[]>(this.baseUrl);

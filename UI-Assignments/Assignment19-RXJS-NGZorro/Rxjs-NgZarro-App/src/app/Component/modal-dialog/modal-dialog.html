@@ -1,0 +1,11 @@
+<button nz-button nzType="primary" (click)="showModal()">Show Modal</button>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Modal Dialog box"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <ng-container *nzModalContent>
+  </ng-container>
+</nz-modal>
