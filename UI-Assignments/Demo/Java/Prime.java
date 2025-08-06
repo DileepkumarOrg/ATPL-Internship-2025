@@ -1,5 +1,5 @@
 import java.util.*;
-class First {
+class Prime {
     public static boolean isPrime(int num){
             if (num < 2) {
                 return false;
@@ -28,4 +28,5 @@ class First {
         System.out.println("Count of Prime Numbers between 0 to "+num+" is " + c);
     }
 }
+
 
