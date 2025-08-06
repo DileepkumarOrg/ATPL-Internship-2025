@@ -1,11 +1,10 @@
-<div>
+<div class="container">
     <div class="main-Div">
-        <nz-input-group [nzSuffix]="suffixIconSearch">
-      <input type="text" nz-input placeholder="input search text" />
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+      <input #searchInput type="text" nz-input placeholder="input search text" />
     </nz-input-group>
     <ng-template #suffixIconSearch>
       <nz-icon nzType="search" />
     </ng-template>
     </div>
 </div>
-    

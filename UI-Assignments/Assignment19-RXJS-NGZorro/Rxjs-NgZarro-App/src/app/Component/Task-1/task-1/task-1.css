@@ -1,4 +1,18 @@
+.container{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-Div{
     padding: 20px;
     width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.active{
+    background-color: rgb(252, 200, 209);
 }

@@ -1,0 +1,16 @@
+div{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button{
+    border-radius: 5px;
+    background-color: rgb(255, 107, 132);
+    border: none;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: rgb(249, 65, 95);
+}
