@@ -39,6 +39,9 @@ public class Pattern1 {
         //System.out.println("Enter Number : ");
         //int num = s.nextInt();
         int num = 5;
+        float f = 4.5254163513351351351313651463521f;
+        double d =  5.32636546416351365163513651354d;
+        System.out.println(f+" "+d);
         obj.pattern1(num);
         obj.pattern2(num);
         obj.pattern3(num);
