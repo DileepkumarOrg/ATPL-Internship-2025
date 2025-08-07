@@ -23,5 +23,6 @@ public class SecondLargestNumber {
         int firstMaximum = max(array);
         Arrays.sort(array);
         System.out.println(array[-1]);
+        
     }
 }
