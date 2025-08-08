@@ -1,8 +1,8 @@
+import java.util.Arrays;
 import java.util.Scanner;
-
-class LargestNumber{
+public class SecondLargestNumber {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+         Scanner s = new Scanner(System.in);
         System.out.println("Enter length of an Array : ");
         int lengthArray = s.nextInt();
         int array[] = new int[lengthArray];
@@ -11,12 +11,13 @@ class LargestNumber{
             array[j] = s.nextInt();
         }
         s.close();
-        int max = 0;
-        for (int i = 0; i < array.length ; i++){
-            if(max < array[i]){
-                max = array[i];
+        Arrays.sort(array);
+        for (int i = 0 ; i< lengthArray-1;i++){
+            if(array[lengthArray-1-i]!=array[lengthArray-1-i-1]){
+                System.out.println("Second Max Number : "+array[lengthArray-1-i-1]);
+                break;
             }
         }
-        System.out.println("The largest element in the array. : " + max);
+        
     }
 }
