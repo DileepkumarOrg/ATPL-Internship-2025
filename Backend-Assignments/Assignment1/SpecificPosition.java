@@ -2,31 +2,34 @@ import java.util.Scanner;
 public class SpecificPosition {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        
         System.out.println("Enter Length of Array : ");
         int arrayLength = s.nextInt();
         int[] array = new int[arrayLength];
-        for(int i = 0; i <arrayLength;i++){
-            System.out.printf("Enter array[%d] : ",i);
-            array[i] = s.nextInt();
+
+        for(int index = 0; index <arrayLength;index++){
+            System.out.printf("Enter array[%d] : ",index);
+            array[index] = s.nextInt();
         }
         System.out.println("Element to insert : ");
         int insertedElement = s.nextInt();
         System.out.println("Enter Position : ");
         int Position = s.nextInt();
+        s.close();
         int[] newArray =new int[arrayLength+1];
-        for(int i = 0 ; i < arrayLength+1; i++){
-            int  j =i;
-            if(Position==i){
-                newArray[i]=insertedElement;
+
+        for(int index = 0 ; index < arrayLength+1; index++){
+            int  temp =index;
+            if(Position==index){
+                newArray[index]=insertedElement;
             }
-            else if(i>Position){
-                newArray[i]=array[j-1];
+            else if(index>Position){
+                newArray[index]=array[temp-1];
             }
-            else newArray[i]=array[i];
+            else newArray[index]=array[index];
         }
-        for(int i : newArray){
-            System.out.print(i +" ");
+        
+        for(int num : newArray){
+            System.out.print(num +" ");
         }
     }
 }
