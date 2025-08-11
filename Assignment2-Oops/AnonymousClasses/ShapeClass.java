@@ -5,7 +5,6 @@ abstract class Shape {
 public class ShapeClass {
     public static void main(String[] args) {
         Shape myShape = new Shape() {
-            @Override
             void draw() {
                 System.out.println("Drawing method ");
             }

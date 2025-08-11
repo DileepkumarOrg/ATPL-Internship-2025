@@ -19,7 +19,7 @@ class Cat extends Animal{
 
 class Cow extends Animal{
     public void makeSound(){
-        System.out.println("Ambaa Ambaa ...!");
+        System.out.println("mooo mooo ...!");
     }
 }
 
