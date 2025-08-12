@@ -10,7 +10,6 @@ public class StringsSafe {
     }
 
     public static void main(String[] args) {
-        StringsSafe stringSafeObj = new StringsSafe();
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter your password: ");
