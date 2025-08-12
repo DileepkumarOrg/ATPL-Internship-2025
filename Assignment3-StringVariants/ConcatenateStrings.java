@@ -5,7 +5,7 @@ public class ConcatenateStrings {
         for(String index : liStrings){
             concatedString += index;
         }
-        System.out.println("ConcatedString is using Operator : "+concatedString+"\n"+"Performance using NanoTime() : "+System.nanoTime());
+        System.out.println("ConcatedString is using Operator : "+concatedString);
     }
 
     public void stringBuffer(String[] lStrings){
@@ -13,7 +13,7 @@ public class ConcatenateStrings {
         for(String index : lStrings){
             coStringBuffer.append(index);
         }
-        System.out.println("ConcatedString is using String Buffer : "+concatedString+"\n"+"Performance using NanoTime() : "+System.nanoTime());
+        System.out.println("ConcatedString is using String Buffer : "+concatedString);
     }
 
     public void stringBuilder(String[] lStrings){
@@ -21,7 +21,7 @@ public class ConcatenateStrings {
         for(String index : lStrings){
             coStringBuilder.append(index);
         }
-        System.out.println("ConcatedString is using String Builder : "+concatedString+"\n"+"Performance using NanoTime() : "+System.nanoTime());
+        System.out.println("ConcatedString is using String Builder : "+concatedString);
     }
 
 
@@ -29,9 +29,15 @@ public class ConcatenateStrings {
         ConcatenateStrings concatenateStringsObj = new ConcatenateStrings();
         
         String[] listStrings = {"Dileep", "Naveen", "Mahesh"};
+        long start = System.nanoTime();
         concatenateStringsObj.operator(listStrings);
+        long end = System.nanoTime();
+        System.out.println("Time : "+ (end-start));
         concatenateStringsObj.stringBuffer(listStrings);
+        long stringBufferEnd = System.nanoTime();
+        System.out.println("Time : "+ (stringBufferEnd-end));
+        long stringBuilderEnd = System.nanoTime();
         concatenateStringsObj.stringBuilder(listStrings);
-
+        System.out.println("Time : "+ (stringBuilderEnd-stringBufferEnd));
     }
 }
