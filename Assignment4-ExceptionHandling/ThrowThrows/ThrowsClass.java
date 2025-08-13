@@ -16,7 +16,7 @@ public class ThrowsClass {
 
     public static void main(String[] args) {
         try {
-            readFile("Dileep.txt");
+            readFile("Assignment4-ExceptionHandling\\ThrowThrows\\Dileep.txt");
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
