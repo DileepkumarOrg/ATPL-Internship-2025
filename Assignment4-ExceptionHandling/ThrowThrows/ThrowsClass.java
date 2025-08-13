@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class FileReadExample {
+public class ThrowsClass {
     public static void readFile(String filename) throws IOException {
         BufferedReader bufferedReaderObject = new BufferedReader(new FileReader(filename));
         String line;
