@@ -12,5 +12,6 @@ public class ThrowClass {
         System.out.println("Enter number : ");
         int num = s.nextInt();
         isPositive(num);
+        s.close();
     }
 }
