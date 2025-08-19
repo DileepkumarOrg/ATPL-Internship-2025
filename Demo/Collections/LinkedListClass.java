@@ -1,7 +1,6 @@
-package Demo.Collections;
-
-
+import java.util.ArrayDeque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class LinkedListClass {
     public static void main(String[] args) {
@@ -17,5 +16,12 @@ public class LinkedListClass {
         } catch(Exception e){
             System.out.println(e);
         }
+        Queue<Integer> obj = new ArrayDeque<>();
+        obj.add(5);
+        obj.offer(6);
+        obj.poll();
+        obj.peek();
+        obj.remove();
+        System.out.println(obj);
     }
 }

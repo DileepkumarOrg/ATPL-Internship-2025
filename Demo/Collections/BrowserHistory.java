@@ -46,3 +46,4 @@ public class BrowserHistory {
         browser.forward();
     }
 }
+  
