@@ -1,3 +1,5 @@
+package Demo.Collections;
+
 import java.util.Stack;
 
 public class BrowserHistory {
