@@ -22,7 +22,7 @@ public class JobScheduler {
         System.out.println(schedulerObject.schedulerQueue);
         schedulerObject.processing();
         schedulerObject.processing();
-        System.out.println(schedulerObject.schedulerQueue);
+        System.out.println("Remaining Files : "+schedulerObject.schedulerQueue);
 
     }
 }
