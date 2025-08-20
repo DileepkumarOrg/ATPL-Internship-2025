@@ -1,4 +1,4 @@
-package Demo.Collections;
+
 import java.util.*;
 
 public class SkillTracker {
@@ -14,11 +14,11 @@ public class SkillTracker {
         System.out.println("Employees with skill " + skill + ": " + employeesWithSkill);
     }    
 
-    public void addEmployeeSkills(String employee, Set<String> skills) {
-        employeeSkills.put(employee, skills);
+    public void addEmployeeSkills(String emp, Set<String> skills) {
+        employeeSkills.put(emp, skills);
     }
 
-    public Set<String> findCommonSkills(String emp1, String emp2) {
+    public void findCommonSkills(String emp1, String emp2) {
         Set<String> commonSkills = new HashSet<>();
         Set<String> skills1 = employeeSkills.get(emp1);
         Set<String> skills2 = employeeSkills.get(emp2);
@@ -27,7 +27,7 @@ public class SkillTracker {
             commonSkills.addAll(skills1);
             commonSkills.retainAll(skills2); 
         }
-        return commonSkills;
+        System.out.println("Common skills between Dileep and Naveen: " + commonSkills);
     }
 
     public static void main(String[] args) {
@@ -38,8 +38,7 @@ public class SkillTracker {
         skillTrackerObject.addEmployeeSkills("Dileep", skillsDileep);
         skillTrackerObject.addEmployeeSkills("Mahesh", skillsMahesh);
         skillTrackerObject.addEmployeeSkills("Naveen", skillsNaveen);
-        Set<String> commonSkills = skillTrackerObject.findCommonSkills("Mahesh", "Naveen");
-        System.out.println("Common skills between Mahesh and Naveen: " + commonSkills);
+        skillTrackerObject.findCommonSkills("Dileep", "Naveen");
         String skillToFind = "Python";
         skillTrackerObject.findEmployeesWithSkill(skillToFind);
         
