@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 public class SkillTracker {
@@ -41,8 +40,6 @@ public class SkillTracker {
         skillTrackerObject.findCommonSkills("Dileep", "Naveen");
         String skillToFind = "Python";
         skillTrackerObject.findEmployeesWithSkill(skillToFind);
-        
-
     }
 }
 
