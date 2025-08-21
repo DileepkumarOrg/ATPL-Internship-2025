@@ -1,0 +1,6 @@
+Naveen : 3
+Sandeep : 1
+Dileep : 2
+Mahesh : 2
+
+        list.sort((a, b) -> b.getValue().compareTo(a.getValue()));
