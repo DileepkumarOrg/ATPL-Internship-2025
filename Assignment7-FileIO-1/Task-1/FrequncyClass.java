@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class FileReaderClass {
+public class FrequncyClass {
     public static void main(String[] args) {
         HashMap<String, Integer> hm = new HashMap<>();
         StringBuilder data = new StringBuilder();
@@ -24,7 +24,8 @@ public class FileReaderClass {
         }
 
         List<Map.Entry<String, Integer>> list = new ArrayList<>(hm.entrySet());
-
+        System.out.println(list);
+        list.sort((a, b) -> b.getValue().compareTo(a.getValue()));
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("Assignment7-FileIO-1\\Task-1\\word_frequencies.txt"))) {
             for (Map.Entry<String, Integer> entry : list) {
                 bw.write(entry.getKey() + " : " + entry.getValue());
