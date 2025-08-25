@@ -13,9 +13,16 @@ public class StudentDetails {
     Arrays.asList(8.8f, 9f, 9f));
     public static void main(String[] args){
         StudentDetails studentDetails = new StudentDetails();
-        System.out.printf("%-10s %-4s %-5s   %s\n","Name","Age","Department","GPA");
-        for(int index =0 ; index < studentDetails.nameList.size()-1; index++){
-            System.out.printf("%-10s %d %-5s   %.1f\n",studentDetails.nameList.get(index),studentDetails.ageList.add(index),studentDetails.departmentList.get(index),studentDetails.gpaList.get(index));
+        System.out.printf("%-10s %-4s %-12s   %s\n","Name","Age","Department","GPA");
+        for(int index =0 ; index < studentDetails.nameList.size(); index++){
+            System.out.printf("%-10s %-4d %-12s   %.1f\n",studentDetails.nameList.get(index),studentDetails.ageList.get(index),studentDetails.departmentList.get(index),studentDetails.gpaList.get(index));
         }
     }
 }
+//Output :
+/*
+    Name       Age  Department     GPA
+    Dileep     21   ECE            8.8
+    Naveen     22   ECE            9.0
+    Mahesh     23   CSE            9.0
+ */
