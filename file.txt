@@ -4,19 +4,3 @@ Sql Angular TypeScript DileepDileepDileepDileepDileepDileepDileepDileepDileepDil
 
 
 
-
-
-Data Integrity & Constraints
--- Add course_code
-ALTER TABLE courses ADD course_code VARCHAR(10);
-
--- Make course_code UNIQUE
-ALTER TABLE courses ADD CONSTRAINT unique_code UNIQUE(course_code);
-
--- Add credits with CHECK
-ALTER TABLE courses ADD credits INT CHECK (credits BETWEEN 1 AND 5);
-
--- Insert with constraints
-UPDATE courses SET course_code='CS101', credits=4 WHERE course_id='C1';
-UPDATE courses SET course_code='MATH205', credits=3 WHERE course_id='C2';
-UPDATE courses SET course_code='PHY303', credits=5 WHERE course_id='C3';
