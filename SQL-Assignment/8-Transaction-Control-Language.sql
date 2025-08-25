@@ -4,7 +4,6 @@ create table accounts (
   balance int
 );
 
--- insert initial
 insert into accounts values 
 (1, 'alice', 5000),
 (2, 'bob', 3000),
