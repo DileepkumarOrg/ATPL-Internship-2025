@@ -16,4 +16,4 @@ update products_Dileep set Price = 650 where id =5;
 
 insert into products_Dileep values(6,"Product6",null);
 
-Delete from products_Dileep where id = 6;
+Delete from products_Dileep where id = 8;

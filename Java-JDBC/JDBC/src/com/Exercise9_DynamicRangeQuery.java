@@ -19,7 +19,6 @@ public class Exercise9_DynamicRangeQuery {
 				System.out.println(rs.getInt("id")+" "+ rs.getString("name")+" "+ rs.getInt("price"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
