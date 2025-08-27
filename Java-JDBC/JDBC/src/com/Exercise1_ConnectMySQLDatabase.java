@@ -3,7 +3,7 @@ package com;
 import java.sql.*;
 
 
-public class Exercise1 {
+public class Exercise1_ConnectMySQLDatabase {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		//Class.forName("com.mysql.cj.jdbc.Driver");

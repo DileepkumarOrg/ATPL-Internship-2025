@@ -2,7 +2,7 @@ package com;
 
 import java.sql.*;
 
-public class Exercise6 {
+public class Exercise6_SearchRecordsPartialMatch { 
 
 	public static void main(String[] args) {
 		try {

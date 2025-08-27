@@ -2,7 +2,7 @@ package com;
 
 import java.sql.*;
 
-public class Exercise3 {
+public class Exercise3_UpdateDataStatement {
 	public static void main(String[] args) {
 
 		try {

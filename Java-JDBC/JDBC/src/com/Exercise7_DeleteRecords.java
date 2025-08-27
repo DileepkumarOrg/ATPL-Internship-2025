@@ -2,7 +2,7 @@ package com;
 
 import java.sql.*;
 
-public class Exercise7 {
+public class Exercise7_DeleteRecords {
 
 	public static void main(String[] args) {
 		try {
@@ -25,6 +25,7 @@ public class Exercise7 {
 	}
 
 }
+
 
 //Output
 

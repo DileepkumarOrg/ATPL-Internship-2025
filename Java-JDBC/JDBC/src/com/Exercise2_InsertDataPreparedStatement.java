@@ -2,7 +2,8 @@ package com;
 
 import java.sql.*;
 
-public class Exercise2 {
+public class Exercise2_InsertDataPreparedStatement
+ {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
