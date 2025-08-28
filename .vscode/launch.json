@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AddSubtract",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.AddSubtract",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
+            "name": "WeekDay",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.WeekDay",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
+            "name": "ReverseOrder",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.ReverseOrder",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
+            "name": "AgeCalculator",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.AgeCalculator",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
             "name": "StartsWith",
             "request": "launch",
             "mainClass": "StartsWith",
