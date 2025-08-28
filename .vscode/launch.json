@@ -1,0 +1,140 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "StartsWith",
+            "request": "launch",
+            "mainClass": "StartsWith",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Exercise10_InsertNull",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise10_InsertNull",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise12_PreparedStatementReuse",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise12_PreparedStatementReuse",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise1_ConnectMySQLDatabase",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise1_ConnectMySQLDatabase",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise2_InsertDataPreparedStatement",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise2_InsertDataPreparedStatement",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise3_UpdateDataStatement",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise3_UpdateDataStatement",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise4_SQLInjectionFixPreparedtatement",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise4_SQLInjectionFixPreparedtatement",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise4_SQLInjectionStatement",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise4_SQLInjectionStatement",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise5_BatchInsertPreparedStatement",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise5_BatchInsertPreparedStatement",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise6_SearchRecordsPartialMatch",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise6_SearchRecordsPartialMatch",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise7_DeleteRecords",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise7_DeleteRecords",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise8_UpdateMultipleColumns",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise8_UpdateMultipleColumns",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "Exercise9_DynamicRangeQuery",
+            "request": "launch",
+            "mainClass": "JDBC/com.Exercise9_DynamicRangeQuery",
+            "projectName": "JDBC"
+        },
+        {
+            "type": "java",
+            "name": "CollectionSort",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.CollectionSort",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
+            "name": "EvenNumbers",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.EvenNumbers",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
+            "name": "LambdaComparator",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.LambdaComparator",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
+            "name": "NamesWithA",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.NamesWithA",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
+            "name": "Square",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.Square",
+            "projectName": "Java8Features"
+        }
+    ]
+}
