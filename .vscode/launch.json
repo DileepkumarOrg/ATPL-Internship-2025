@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "demo",
+            "request": "launch",
+            "mainClass": "demo",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "HondaCar",
+            "request": "launch",
+            "mainClass": "HondaCar",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "HondaCar",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment1.HondaCar",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
             "name": "AddSubtract",
             "request": "launch",
             "mainClass": "Java8Features/com.Assignment1.AddSubtract",
