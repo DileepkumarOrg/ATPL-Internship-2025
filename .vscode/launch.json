@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LazyConfigLoader",
+            "request": "launch",
+            "mainClass": "Java8Features/com.Assignment2.LazyConfigLoader",
+            "projectName": "Java8Features"
+        },
+        {
+            "type": "java",
+            "name": "Reduce",
+            "request": "launch",
+            "mainClass": "Reduce",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "LambdaDemo",
+            "request": "launch",
+            "mainClass": "Demo.Java8Features.LambdaDemo",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "demo",
             "request": "launch",
             "mainClass": "demo",

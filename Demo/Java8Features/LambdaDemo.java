@@ -2,7 +2,7 @@ package Demo.Java8Features;
 
 
 
-public class LambdaDemo {
+/* public class LambdaDemo {
     static String[] arr = {"Dileep", "Sandeep", "Naveen", "Mahesh","Kumar"};
     static ArrayList< String> al = new ArrayList<>(Arrays.asList(arr));
 
@@ -17,5 +17,18 @@ public class LambdaDemo {
         System.out.println(al);
         Collections.sort(al,com);
         System.out.println(al);
+    }
+} */
+public interface InnerLambdaDemo {
+
+    public int add(int i, int j);
+}
+
+public class LambdaDemo {
+
+    public static void main(String[] args) {
+        InnerLambdaDemo id = ( i,  j) -> i+j;
+
+        System.out.println(id.add(5,6));
     }
 }
