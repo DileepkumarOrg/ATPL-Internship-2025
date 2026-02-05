@@ -1,4 +1,0 @@
-Naveen : 3
-Dileep : 2
-Mahesh : 2
-Sandeep : 1

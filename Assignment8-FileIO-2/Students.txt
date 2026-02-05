@@ -1,5 +1,0 @@
-Student [ name = Dileep    , age = 21  ,department = ECE  , gpa =  8.8 ]
-Student [ name = Naveen    , age = 22  ,department = ECE  , gpa =  9.0 ]
-Student [ name = Mahesh    , age = 22  ,department = CSE  , gpa =  9.8 ]
-Student [ name = Gnani     , age = 23  ,department = ECE  , gpa =  8.9 ]
-Student [ name = Aaditya   , age = 21  ,department = CSE  , gpa =  9.0 ]
