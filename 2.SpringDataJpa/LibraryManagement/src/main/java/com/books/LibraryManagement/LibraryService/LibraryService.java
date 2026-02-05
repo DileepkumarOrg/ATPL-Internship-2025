@@ -4,11 +4,14 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.books.LibraryManagement.BookModel.Author;
 import com.books.LibraryManagement.BookModel.Book;
 import com.books.LibraryManagement.DTOs.AuthorDto;
 import com.books.LibraryManagement.DTOs.BookDto;
+import com.books.LibraryManagement.DTOs.ErrorMessage;
+import com.books.LibraryManagement.Exceptions.ErrorMessagePass;
 import com.books.LibraryManagement.Repos.AuthorRepo;
 import com.books.LibraryManagement.Repos.BookRepo;
 
@@ -22,9 +25,11 @@ public class LibraryService {
 	private final ModelMapper modelMapper;
 	
 		
-	
+	@Transactional
 	public BookDto addBook(BookDto bookDto) {
-	    // 1. Handle the Author (Find existing or create new)
+		if(!authRepo.findByName(bookDto.getAuthorName()).isEmpty() && !bookRepo.findByTitle(bookDto.getTitle()).isEmpty()) {
+			throw new ErrorMessagePass("Duplicate Entry");
+		}
 	    Author author = authRepo.findByName(bookDto.getAuthorName())
 	            .orElseGet(() -> {
 	                Author newAuthor = new Author();
@@ -32,19 +37,15 @@ public class LibraryService {
 	                return authRepo.save(newAuthor);
 	            });
 
-	    // 2. Handle the Book
-	    // Check if book already exists to avoid duplicates
 	    Book book = bookRepo.findByTitle(bookDto.getTitle())
 	            .orElseGet(() -> {
 	                Book newBook = new Book();
 	                newBook.setTitle(bookDto.getTitle());
 	                newBook.setGenre(bookDto.getGenre());
-	                // IMPORTANT: Link the author to the book
 	                newBook.setAuthor(author); 
 	                return bookRepo.save(newBook);
 	            });
 
-	    // 3. Return the DTO (mapping back ensures you return the saved IDs)
 	    return modelMapper.map(book, BookDto.class);
 	}
 	

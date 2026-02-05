@@ -17,6 +17,7 @@ import com.books.LibraryManagement.DTOs.AuthorDto;
 import com.books.LibraryManagement.DTOs.BookDto;
 import com.books.LibraryManagement.LibraryService.LibraryService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -47,7 +48,7 @@ public class LibraryController {
 	}
 	
 	@PostMapping("/book")
-	public BookDto addBook(@RequestBody BookDto book) {
+	public BookDto addBook(@Valid @RequestBody BookDto book) {
 		return librarySer.addBook(book);
 	}
 
