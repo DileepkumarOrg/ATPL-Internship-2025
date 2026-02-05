@@ -33,4 +33,14 @@ public class GlobalExceptionHandling {
 		return new ResponseEntity<>(err,HttpStatus.CONFLICT);
 	}
 	
+	@ExceptionHandler(NotFound.class)
+	public ResponseEntity<ErrorMessage> notFound(NotFound nf){
+		ErrorMessage err = new ErrorMessage(
+				404,
+				nf.getMessage()
+				
+				);
+		return new ResponseEntity<>(err,HttpStatus.NOT_FOUND);
+	}
+	
 }

@@ -8,10 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.books.LibraryManagement.BookModel.Author;
 import com.books.LibraryManagement.BookModel.Book;
+import com.books.LibraryManagement.DTOs.AuthorByIdDto;
 import com.books.LibraryManagement.DTOs.AuthorDto;
 import com.books.LibraryManagement.DTOs.BookDto;
-import com.books.LibraryManagement.DTOs.ErrorMessage;
 import com.books.LibraryManagement.Exceptions.ErrorMessagePass;
+import com.books.LibraryManagement.Exceptions.NotFound;
 import com.books.LibraryManagement.Repos.AuthorRepo;
 import com.books.LibraryManagement.Repos.BookRepo;
 
@@ -61,11 +62,6 @@ public class LibraryService {
 	            .toList();
 	}
 	
-//	public BookDto bookDtoToBook(Book book) {
-//		BookDto bookDto = new BookDto();
-//		bookDto = modelMapper.map(book, BookDto.class);
-//		return bookDto;
-//	}
 	
 	public List<AuthorDto> getAllAuthors() {
 //		System.out.println(authRepo.findAll());
@@ -83,16 +79,38 @@ public class LibraryService {
 	                return dto;
 	            })
 	            .toList();
-//	    return null;
 	}
 
 	
-	public Book getBookById(long id) {
-		return bookRepo.findById(id).orElse(null);
+	public BookDto getBookById(long id) {
+		Book book = bookRepo.findById(id).orElseThrow(() ->new NotFound("Book not found"));
+		return modelMapper.map(book, BookDto.class); 
 	}
 	
-	public Author getAuthorById(long id) {
-		return authRepo.findById(id).orElse(null);
+	public AuthorByIdDto getAuthorById(long id) {
+		Author auth = authRepo.findById(id).orElseThrow(() -> new NotFound("Author not found"));
+//		Without Using Model Mapper
+//		AuthorByIdDto authorDto = new AuthorByIdDto();
+//	    authorDto.setId(auth.getId());
+//	    authorDto.setName(auth.getName());
+//
+//	    if (auth.getBooks() != null) {
+//	        List<BookDto> bookDtos = auth.getBooks().stream()
+//	            .map(book -> {
+//	                BookDto bookDto = new BookDto();
+//	                bookDto.setId(book.getId());
+//	                bookDto.setTitle(book.getTitle());
+//	                bookDto.setGenre(book.getGenre());
+//	                bookDto.setAuthorId(book.getId());
+//	                bookDto.setAuthorName(book.getAuthor().getName());
+//	                return bookDto;
+//	            })
+//	            .collect(Collectors.toList());
+//	        
+//	        authorDto.setBooks(bookDtos);
+//	    }
+
+	    return modelMapper.map(auth, AuthorByIdDto.class);
 	}
 	
 	public Book updateBook(Book book) {

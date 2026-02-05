@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.books.LibraryManagement.BookModel.Author;
 import com.books.LibraryManagement.BookModel.Book;
+import com.books.LibraryManagement.DTOs.AuthorByIdDto;
 import com.books.LibraryManagement.DTOs.AuthorDto;
 import com.books.LibraryManagement.DTOs.BookDto;
 import com.books.LibraryManagement.LibraryService.LibraryService;
@@ -38,12 +39,12 @@ public class LibraryController {
 	}
 	
 	@GetMapping("/books/{id}")
-	public Book getBookById(@PathVariable long id){
+	public BookDto getBookById(@PathVariable long id){
 		return librarySer.getBookById(id);
 	}
 
 	@GetMapping("/authors/{id}")
-	public Author getAuthorById(@PathVariable long id){
+	public AuthorByIdDto getAuthorById(@PathVariable long id){
 		return librarySer.getAuthorById(id);
 	}
 	
