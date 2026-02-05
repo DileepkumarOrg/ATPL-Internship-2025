@@ -48,22 +48,22 @@ public class LibraryController {
 		return librarySer.getAuthorById(id);
 	}
 	
-	@PostMapping("/book")
+	@PostMapping("/books")
 	public BookDto addBook(@Valid @RequestBody BookDto book) {
 		return librarySer.addBook(book);
 	}
 
-	@PostMapping("/author")
+	@PostMapping("/authors")
 	public Author addAuthor(@RequestBody Author author) {
 		return librarySer.addAuthor(author);
 	}
 	
-	@PutMapping("/book")
-	public Book updateBook(@RequestBody Book book) {
+	@PutMapping("/books")
+	public BookDto updateBook(@RequestBody BookDto book) {
 		return librarySer.updateBook(book);
 	}
 
-	@PutMapping("/author")
+	@PutMapping("/authors")
 	public Author updateAuthor(@RequestBody Author author) {
 		return librarySer.updateAuthor(author);
 	}

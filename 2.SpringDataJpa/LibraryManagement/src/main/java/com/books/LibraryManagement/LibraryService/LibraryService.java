@@ -113,9 +113,31 @@ public class LibraryService {
 	    return modelMapper.map(auth, AuthorByIdDto.class);
 	}
 	
-	public Book updateBook(Book book) {
-		return bookRepo.save(book);
+	@Transactional
+	public BookDto updateBook(BookDto bookDto) {
+
+	    Author author = authRepo.findById(bookDto.getAuthorId())
+	            .orElseThrow(() ->
+	                    new NotFound("Author not found with id: " + bookDto.getAuthorId())
+	            );
+	    Book book = bookRepo.findById(bookDto.getId())
+	            .orElseThrow(() ->
+	                    new NotFound("Book not found with id: " + bookDto.getId())
+	            );
+
+	    book.setTitle(bookDto.getTitle());
+	    book.setGenre(bookDto.getGenre());
+	    book.setAuthor(author);
+
+	    if (bookDto.getAuthorName() != null) {
+	        author.setName(bookDto.getAuthorName());
+	    }
+
+	    Book updatedBook = bookRepo.save(book);
+
+	    return modelMapper.map(updatedBook, BookDto.class);
 	}
+
 	
 	public Author updateAuthor(Author auth) {
 		return authRepo.save(auth);
