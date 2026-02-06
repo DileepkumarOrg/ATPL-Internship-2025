@@ -86,5 +86,10 @@ public class LibraryController {
 		librarySer.deleteAuthor(id);
 	}
 	
+	@DeleteMapping("/publisher/{id}/{book_id}")
+	public void deletePublisherById(@PathVariable long id,@PathVariable long book_id) {
+		librarySer.deleteFromMapping(id,book_id);
+	}
+	
 	
 }

@@ -1,6 +1,6 @@
 package com.books.LibraryManagement.LibraryService;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.books.LibraryManagement.BookModel.Author;
 import com.books.LibraryManagement.BookModel.Book;
+import com.books.LibraryManagement.BookModel.Publisher;
 import com.books.LibraryManagement.DTOs.AuthorByIdDto;
 import com.books.LibraryManagement.DTOs.AuthorDto;
 import com.books.LibraryManagement.DTOs.BookDto;
@@ -19,6 +20,7 @@ import com.books.LibraryManagement.Exceptions.ErrorMessagePass;
 import com.books.LibraryManagement.Exceptions.NotFound;
 import com.books.LibraryManagement.Repos.AuthorRepo;
 import com.books.LibraryManagement.Repos.BookRepo;
+import com.books.LibraryManagement.Repos.PublisherRepo;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,11 +29,13 @@ import lombok.RequiredArgsConstructor;
 public class LibraryService {
 	private final BookRepo bookRepo;
 	private final AuthorRepo authRepo;
+	private final PublisherRepo pubRep;
 	private final ModelMapper modelMapper;
 	
 		
 	@Transactional
 	public BookDto addBook(BookDto bookDto) {
+		System.err.println(bookDto.getPublishers());
 		if(!authRepo.findByName(bookDto.getAuthorName()).isEmpty() && !bookRepo.findByTitle(bookDto.getTitle()).isEmpty()) {
 			throw new ErrorMessagePass("Duplicate Entry");
 		}
@@ -41,16 +45,36 @@ public class LibraryService {
 	                newAuthor.setName(bookDto.getAuthorName());
 	                return authRepo.save(newAuthor);
 	            });
-
+//	    Publisher publisher = pubRep.findByName(bookDto.getPublisher())
+//	    		.orElseGet(() -> {
+//	    			Publisher newPublisher = new Publisher();
+//	    			newPublisher.setName(bookDto.getPublisher());
+//	    			newPublisher.setLocation(bookDto.getLocation());
+//	    			return pubRep.save(newPublisher);
+//	    		});
+	    
+	    List<Publisher> publishers = bookDto.getPublishers()
+	    	    .stream()
+	    	    .map(publisher -> {
+	    	    	Publisher newPub = new Publisher();
+	    	    	newPub.setName(publisher.getName());
+	    	        newPub.setLocation(publisher.getLocation());
+	    	        return pubRep.findByName(publisher.getName())
+	    	        		.orElseGet(() ->pubRep.save(newPub));
+	    	    })
+	    	    .collect(Collectors.toList());
+	    
 	    Book book = bookRepo.findByTitle(bookDto.getTitle())
 	            .orElseGet(() -> {
 	                Book newBook = new Book();
 	                newBook.setTitle(bookDto.getTitle());
 	                newBook.setGenre(bookDto.getGenre());
 	                newBook.setAuthor(author); 
+	                newBook.setPublishers(publishers);
+	                
 	                return bookRepo.save(newBook);
 	            });
-
+	    
 	    return modelMapper.map(book, BookDto.class);
 	}
 	
@@ -128,10 +152,21 @@ public class LibraryService {
 	            .orElseThrow(() ->
 	                    new NotFound("Book not found with id: " + bookDto.getId())
 	            );
-
+	    List<Publisher> publishers = bookDto.getPublishers()
+	    	    .stream()
+	    	    .map(publisher -> {
+	    	    	Publisher newPub = new Publisher();
+	    	    	newPub.setName(publisher.getName());
+	    	        newPub.setLocation(publisher.getLocation());
+	    	        newPub.setId(publisher.getId());
+	    	        System.err.println(newPub);
+	    	        return pubRep.save(newPub);
+	    	    })
+	    	    .collect(Collectors.toList());
 	    book.setTitle(bookDto.getTitle());
 	    book.setGenre(bookDto.getGenre());
 	    book.setAuthor(author);
+	    book.setPublishers(publishers);
 
 	    if (bookDto.getAuthorName() != null) {
 	        author.setName(bookDto.getAuthorName());
@@ -160,4 +195,23 @@ public class LibraryService {
 		Page<Book> pageBook = bookRepo.findAll(pageable);
 		return pageBook.map(book -> modelMapper.map(book, BookDto.class));
 	}
+	@Transactional
+	public void deletePublisher(long id) {
+		pubRep.deleteById(id);
+		
+	}
+	@Transactional
+	public void deleteFromMapping(long bookId, long publisherId) {
+
+	    Book book = bookRepo.findById(bookId)
+	            .orElseThrow(() -> new RuntimeException("Book not found"));
+
+	    Publisher publisher = pubRep.findById(publisherId)
+	            .orElseThrow(() -> new RuntimeException("Publisher not found"));
+
+	    book.getPublishers().remove(publisher);
+
+	   
+	}
+
 }

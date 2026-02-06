@@ -1,10 +1,17 @@
 package com.books.LibraryManagement.DTOs;
 
+import java.util.List;
+
+import com.books.LibraryManagement.BookModel.Publisher;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+
 public class BookDto {
 
     private long id;
@@ -18,6 +25,8 @@ public class BookDto {
     private String genre;
 
     private Long authorId;
+    
+    private List<Publisher> publishers;
 
     @NotBlank(message = "Author name is mandatory")
     @Size(min = 2, max = 100, message = "Author name must be between 2 and 100 characters")
