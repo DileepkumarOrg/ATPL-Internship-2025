@@ -2,6 +2,7 @@ package com.books.LibraryManagement.LibraryController;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.books.LibraryManagement.BookModel.Author;
@@ -19,6 +21,7 @@ import com.books.LibraryManagement.DTOs.BookDto;
 import com.books.LibraryManagement.LibraryService.LibraryService;
 
 import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -48,6 +51,11 @@ public class LibraryController {
 		return librarySer.getAuthorById(id);
 	}
 	
+	@GetMapping("/booksByGenre")
+	public Page<BookDto> booksByGenre(@RequestParam int pageNu, @RequestParam int pageSize){
+		return librarySer.getPageByGenre(pageNu, pageSize);
+	}
+	
 	@PostMapping("/books")
 	public BookDto addBook(@Valid @RequestBody BookDto book) {
 		return librarySer.addBook(book);
@@ -68,13 +76,15 @@ public class LibraryController {
 		return librarySer.updateAuthor(author);
 	}
 	
-	@DeleteMapping("/book/{id}")
+	@DeleteMapping("/books/{id}")
 	public void deleteBookById(@PathVariable long id) {
 		librarySer.deleteBook(id);
 	}
 
-	@DeleteMapping("/author/{id}")
+	@DeleteMapping("/authors/{id}")
 	public void deleteAuthById(@PathVariable long id) {
 		librarySer.deleteAuthor(id);
 	}
+	
+	
 }

@@ -1,7 +1,11 @@
 package com.books.LibraryManagement.LibraryService;
 import java.util.List;
-import java.util.stream.Collectors;
 
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Page;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -149,5 +153,11 @@ public class LibraryService {
 	
 	public void deleteAuthor(long id) {
 		authRepo.deleteById(id);
+	}
+
+	public Page<BookDto> getPageByGenre(int pageNu, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNu, pageSize,Sort.by("genre"));
+		Page<Book> pageBook = bookRepo.findAll(pageable);
+		return pageBook.map(book -> modelMapper.map(book, BookDto.class));
 	}
 }
