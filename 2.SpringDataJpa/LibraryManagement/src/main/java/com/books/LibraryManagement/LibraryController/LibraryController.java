@@ -1,8 +1,15 @@
 package com.books.LibraryManagement.LibraryController;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
-
+import org.springframework.core.io.Resource;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.data.domain.Page;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +18,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.books.LibraryManagement.BookModel.Author;
 import com.books.LibraryManagement.BookModel.Book;
@@ -25,9 +34,12 @@ import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class LibraryController {
+	@Value("${file.upload-dir}")
+    private String uploadDir;
 	public final LibraryService librarySer;
 	
 	@GetMapping("/books")
@@ -56,9 +68,17 @@ public class LibraryController {
 		return librarySer.getPageByGenre(pageNu, pageSize);
 	}
 	
-	@PostMapping("/books")
-	public BookDto addBook(@Valid @RequestBody BookDto book) {
-		return librarySer.addBook(book);
+//	@PostMapping("/books")
+//	public BookDto addBook(@Valid @RequestBody BookDto book, @RequestParam("file") MultipartFile file) {
+//		return librarySer.addBook(book, file);
+//	}
+	
+	@PostMapping(path = "/books", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+	public BookDto addBook(
+	    @RequestPart("book") @Valid BookDto book, // Changed from @RequestBody to @RequestPart
+	    @RequestPart("file") MultipartFile file   // Changed from @RequestParam to @RequestPart (cleaner)
+	) {
+	    return librarySer.addBook(book, file);
 	}
 
 	@PostMapping("/authors")
@@ -66,9 +86,15 @@ public class LibraryController {
 		return librarySer.addAuthor(author);
 	}
 	
-	@PutMapping("/books")
-	public BookDto updateBook(@RequestBody BookDto book) {
-		return librarySer.updateBook(book);
+//	@PutMapping("/books")
+//	public BookDto updateBook(@RequestBody BookDto book) {
+//		return librarySer.updateBook(book);
+//	}
+	
+	@PutMapping(path = "/books", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+	public BookDto updateBook(@RequestPart("book") @Valid BookDto book, 
+		    @RequestPart(value = "file", required = false) MultipartFile file  ) {
+		return librarySer.updateBook(book, file);
 	}
 
 	@PutMapping("/authors")
@@ -96,5 +122,14 @@ public class LibraryController {
 		librarySer.activateFromMapping(id);
 	}
 	
-	
+	@GetMapping("/view/{fileName}")
+	public ResponseEntity<Resource> viewImage(@PathVariable String fileName) {
+
+	    Path path = Paths.get(uploadDir + fileName);
+	    Resource resource = new FileSystemResource(path);
+
+	    return ResponseEntity.ok()
+	        .contentType(MediaType.IMAGE_JPEG)
+	        .body(resource);
+	}
 }

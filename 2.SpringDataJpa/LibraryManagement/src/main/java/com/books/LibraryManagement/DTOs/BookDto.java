@@ -23,6 +23,8 @@ public class BookDto {
     @NotBlank(message = "Genre is mandatory")
     @Size(min = 3, max = 50, message = "Genre must be between 3 and 50 characters")
     private String genre;
+    
+    private String imagePath;
 
     private Long authorId;
     

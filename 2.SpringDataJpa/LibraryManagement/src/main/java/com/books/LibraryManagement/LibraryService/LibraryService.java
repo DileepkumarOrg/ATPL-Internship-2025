@@ -1,14 +1,20 @@
 package com.books.LibraryManagement.LibraryService;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.books.LibraryManagement.BookModel.Author;
 import com.books.LibraryManagement.BookModel.Book;
@@ -26,16 +32,32 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
+
+
 public class LibraryService {
 	private final BookRepo bookRepo;
 	private final AuthorRepo authRepo;
 	private final PublisherRepo pubRep;
 	private final ModelMapper modelMapper;
 	
-		
+	
+	@Value("${file.upload-dir}")
+    private String uploadDir;
+	
+	
 	@Transactional
-	public BookDto addBook(BookDto bookDto) {
-		System.err.println(bookDto.getPublishers());
+	public BookDto addBook(BookDto bookDto, MultipartFile file) {
+		if (file.isEmpty()) {
+            throw new RuntimeException("File is empty");
+        }
+
+        if (!file.getContentType().startsWith("image/")) {
+            throw new RuntimeException("Only images allowed");
+        }
+        
+        if(file.getSize() > 307200) {
+        	throw new RuntimeException("Image should be lessthan 300kb");
+        }
 		if(!authRepo.findByName(bookDto.getAuthorName()).isEmpty() && !bookRepo.findByTitle(bookDto.getTitle()).isEmpty()) {
 			throw new ErrorMessagePass("Duplicate Entry");
 		}
@@ -74,6 +96,28 @@ public class LibraryService {
 	                
 	                return bookRepo.save(newBook);
 	            });
+	    
+	    String fileName =
+	            book.getId() + "_" + System.currentTimeMillis()
+	            + "_" + file.getOriginalFilename();
+	    
+	    try {
+            // 3️ Save file to disk
+            Path path = Paths.get(uploadDir + fileName);
+            Files.copy(file.getInputStream(), path);
+
+            // 4️ Save path in DB
+            Book book1 = bookRepo.findById(book.getId())
+                    .orElseThrow(() -> new RuntimeException("Book not found"));
+
+            book1.setImagePath(fileName);
+            bookRepo.save(book1);
+
+        } catch (IOException e) {
+            throw new RuntimeException("Image upload failed");
+        }
+	    
+	    
 	    
 	    return modelMapper.map(book, BookDto.class);
 	}
@@ -142,8 +186,9 @@ public class LibraryService {
 	}
 	
 	@Transactional
-	public BookDto updateBook(BookDto bookDto) {
-
+	public BookDto updateBook(BookDto bookDto, MultipartFile file) {
+        
+        
 	    Author author = authRepo.findById(bookDto.getAuthorId())
 	            .orElseThrow(() ->
 	                    new NotFound("Author not found with id: " + bookDto.getAuthorId())
@@ -167,7 +212,30 @@ public class LibraryService {
 	    book.setGenre(bookDto.getGenre());
 	    book.setAuthor(author);
 	    book.setPublishers(publishers);
+	    
+	    
+	    
+	   if( file != null && !file.isEmpty()) {
+		   String fileName =
+	        		bookDto.getId() + "_" + System.currentTimeMillis()
+		            + "_" +  file.getOriginalFilename();
+		   try {
+	            // 3️ Save file to disk
+	            Path path = Paths.get(uploadDir + fileName);
+	            Files.copy(file.getInputStream(), path);
 
+	            // 4️ Save path in DB
+	            Book book1 = bookRepo.findById(book.getId())
+	                    .orElseThrow(() -> new RuntimeException("Book not found"));
+
+	            book1.setImagePath(fileName);
+	            bookRepo.save(book1);
+
+	        } catch (IOException e) {
+	            throw new RuntimeException("Image upload failed");
+	        }
+
+	   }
 	    if (bookDto.getAuthorName() != null) {
 	        author.setName(bookDto.getAuthorName());
 	    }
