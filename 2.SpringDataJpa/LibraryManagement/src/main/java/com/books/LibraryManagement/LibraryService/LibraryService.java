@@ -201,17 +201,29 @@ public class LibraryService {
 		
 	}
 	@Transactional
-	public void deleteFromMapping(long bookId, long publisherId) {
+	public void deleteFromMapping(long publisherId) {
+		Publisher publisher = pubRep.findById(publisherId)
+		        .orElseThrow(() -> new NotFound("Publisher not found"));
+		//		List<Book> books = publisher.getBooks();
+		//	    for (Book book : books) {
+		//	        book.getPublishers().remove(publisher);
+		//	    }
+		//		System.err.println(pubRep.findById(publisherId));
+	    pubRep.deleteById(publisherId);
 
-	    Book book = bookRepo.findById(bookId)
-	            .orElseThrow(() -> new RuntimeException("Book not found"));
-
-	    Publisher publisher = pubRep.findById(publisherId)
-	            .orElseThrow(() -> new RuntimeException("Publisher not found"));
-
-	    book.getPublishers().remove(publisher);
+		System.err.println(pubRep.findById(publisherId));
 
 	   
+	}
+	
+	@Transactional
+	public void activateFromMapping(long publisherId) {
+//		Publisher publisher = pubRep.findById(publisherId)
+//		        .orElseThrow(() -> new RuntimeException("Publisher not found"));
+		
+	    pubRep.restorePublisher(publisherId);
+	    Publisher publisher = pubRep.findById(publisherId)
+		        .orElseThrow(() -> new NotFound("Publisher not found"));
 	}
 
 }
