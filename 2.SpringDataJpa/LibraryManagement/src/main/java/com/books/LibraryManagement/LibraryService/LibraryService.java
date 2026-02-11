@@ -21,6 +21,7 @@ import com.books.LibraryManagement.BookModel.Book;
 import com.books.LibraryManagement.BookModel.Publisher;
 import com.books.LibraryManagement.DTOs.AuthorByIdDto;
 import com.books.LibraryManagement.DTOs.AuthorDto;
+import com.books.LibraryManagement.DTOs.AuthorOptions;
 import com.books.LibraryManagement.DTOs.BookDto;
 import com.books.LibraryManagement.Exceptions.ErrorMessagePass;
 import com.books.LibraryManagement.Exceptions.NotFound;
@@ -292,6 +293,18 @@ public class LibraryService {
 	    pubRep.restorePublisher(publisherId);
 	    Publisher publisher = pubRep.findById(publisherId)
 		        .orElseThrow(() -> new NotFound("Publisher not found"));
+	}
+	
+	public List<AuthorOptions> getAllAuthorsoptions(){
+		System.err.println(authRepo.findAll());
+		return authRepo.findAll().stream()
+				.map(auth -> {
+                    AuthorOptions options = modelMapper.map(auth, AuthorOptions.class);
+                    options.setValue(String.valueOf(auth.getId())); 
+                    return options;
+                })
+                .collect(Collectors.toList());
+
 	}
 
 }

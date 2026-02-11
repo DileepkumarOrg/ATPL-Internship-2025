@@ -26,6 +26,7 @@ import com.books.LibraryManagement.BookModel.Author;
 import com.books.LibraryManagement.BookModel.Book;
 import com.books.LibraryManagement.DTOs.AuthorByIdDto;
 import com.books.LibraryManagement.DTOs.AuthorDto;
+import com.books.LibraryManagement.DTOs.AuthorOptions;
 import com.books.LibraryManagement.DTOs.BookDto;
 import com.books.LibraryManagement.LibraryService.LibraryService;
 
@@ -131,5 +132,10 @@ public class LibraryController {
 	    return ResponseEntity.ok()
 	        .contentType(MediaType.IMAGE_JPEG)
 	        .body(resource);
+	}
+	
+	@GetMapping("/authorOptions")
+	public List<AuthorOptions> getAllAuthorsoptions(){
+		return librarySer.getAllAuthorsoptions();
 	}
 }
