@@ -4,11 +4,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.modelmapper.ModelMapper;
@@ -23,7 +25,10 @@ import com.books.LibraryManagement.DTOs.AuthorByIdDto;
 import com.books.LibraryManagement.DTOs.AuthorDto;
 import com.books.LibraryManagement.DTOs.AuthorOptions;
 import com.books.LibraryManagement.DTOs.BookDto;
+import com.books.LibraryManagement.DTOs.PublisherDto;
+import com.books.LibraryManagement.DTOs.PublisherOptions;
 import com.books.LibraryManagement.Exceptions.ErrorMessagePass;
+import com.books.LibraryManagement.Exceptions.NoContent;
 import com.books.LibraryManagement.Exceptions.NotFound;
 import com.books.LibraryManagement.Repos.AuthorRepo;
 import com.books.LibraryManagement.Repos.BookRepo;
@@ -103,7 +108,7 @@ public class LibraryService {
 	            + "_" + file.getOriginalFilename();
 	    
 	    try {
-            // 3️ Save file to disk
+            // 3️ Save file
             Path path = Paths.get(uploadDir + fileName);
             Files.copy(file.getInputStream(), path);
 
@@ -124,7 +129,14 @@ public class LibraryService {
 	}
 	
 	public Author addAuthor(Author author) {
-		return authRepo.save(author);
+//		return authRepo.save(author);
+		Author auth = authRepo.findByName(author.getName())
+	            .orElseGet(() -> {
+	                Author newAuthor = new Author();
+	                newAuthor.setName(author.getName());
+	                return authRepo.save(newAuthor);
+	            });
+		return auth;
 	}
 	
 	public List<BookDto> getAllBooks() {
@@ -141,12 +153,12 @@ public class LibraryService {
 		System.err.println(authRepo.findAll().toString());
 	    return authRepo.findAll()
 	            .stream()
-	            .map(title -> {
-	            	AuthorDto dto = modelMapper.map(title, AuthorDto.class);
-	                List<String> bookNames =
-	                		title.getBooks()
+	            .map(author -> {
+	            	AuthorDto dto = modelMapper.map(author, AuthorDto.class);
+	                List<BookDto> bookNames =
+	                		author.getBooks()
 	                              .stream()
-	                              .map(Book::getTitle)
+	                              .map(Book-> modelMapper.map(Book, BookDto.class))
 	                              .toList();
 	                dto.setBooks(bookNames);
 	                return dto;
@@ -247,8 +259,17 @@ public class LibraryService {
 	}
 
 	
+	
 	public Author updateAuthor(Author auth) {
-		return authRepo.save(auth);
+		Author author = authRepo.findById(auth.getId())
+	            .orElseThrow(() -> new NotFound("Author not found"));
+		
+//		boolean noChange = Objects.equals(author.getName(), auth.getName())
+//	            && author.getBooks().equals(auth.getBooks());
+//		System.err.println(noChange);
+		System.err.println(author.getBooks()+" "+ auth.getBooks());
+//		if(author.getId()== auth.getId() && author.getName() == auth.getName() && author.getBooks() == auth.getBooks()) return ResponseEntity.noContent().build();
+         return authRepo.save(auth);
 	}
 	
 	public void deleteBook(long id) {
@@ -267,11 +288,10 @@ public class LibraryService {
 	@Transactional
 	public void deletePublisher(long id) {
 		pubRep.deleteById(id);
-		
 	}
 	@Transactional
 	public void deleteFromMapping(long publisherId) {
-		Publisher publisher = pubRep.findById(publisherId)
+		pubRep.findById(publisherId)
 		        .orElseThrow(() -> new NotFound("Publisher not found"));
 		//		List<Book> books = publisher.getBooks();
 		//	    for (Book book : books) {
@@ -280,9 +300,7 @@ public class LibraryService {
 		//		System.err.println(pubRep.findById(publisherId));
 	    pubRep.deleteById(publisherId);
 
-		System.err.println(pubRep.findById(publisherId));
-
-	   
+		System.err.println(pubRep.findById(publisherId)); 
 	}
 	
 	@Transactional
@@ -305,6 +323,23 @@ public class LibraryService {
                 })
                 .collect(Collectors.toList());
 
+	}
+
+	public PublisherDto getPublisher(long id) {
+		PublisherDto publisher = modelMapper.map(pubRep.getById(id), PublisherDto.class);
+		publisher.getBooks().forEach(book -> book.setPublishers(null));
+		return publisher;
+	}
+
+	public List<PublisherOptions> getAllPublisherOptions() {
+	    return pubRep.findAll().stream()
+	            .map(option -> {
+	                option.setName(option.getName() + "-" + option.getLocation());
+	                PublisherOptions mapped = modelMapper.map(option,PublisherOptions.class);
+	                mapped.setValue(mapped.getId().toString());
+	                return mapped;
+	            })
+	            .collect(Collectors.toList());
 	}
 
 }

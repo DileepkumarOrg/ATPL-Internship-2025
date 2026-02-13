@@ -19,4 +19,5 @@ public interface PublisherRepo extends JpaRepository<Publisher, Long>{
 	@Transactional
 	@Query(value = "UPDATE publisher_dileep SET deleted = 0 WHERE id = :id", nativeQuery = true)
     void restorePublisher(long id);
+	
 }

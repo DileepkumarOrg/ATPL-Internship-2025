@@ -3,6 +3,11 @@ package com.books.LibraryManagement.BookModel;
 
 import java.util.List;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,6 +26,8 @@ import lombok.Setter;
 @Table(name = "Book_Dileep")
 @Setter
 @Getter
+@SQLDelete(sql = "UPDATE Book_Dileep SET deleted = true WHERE id=?") 
+@SQLRestriction("deleted = false")
 public class Book {
 	@Id
 	@GeneratedValue( strategy = GenerationType.AUTO)
@@ -28,6 +35,7 @@ public class Book {
 	private String title;
 	private String genre;
 	private String imagePath;
+	private Boolean deleted = false;
 	@ManyToOne
 	@JoinColumn(name = "author_id")
 	private Author author;
@@ -41,6 +49,8 @@ public class Book {
 				@JoinColumn(name = "publisher_id", referencedColumnName = "id")
 		}
 			)
-		private List<Publisher> publishers;
+
+	private List<Publisher> publishers;
+
 	
 }

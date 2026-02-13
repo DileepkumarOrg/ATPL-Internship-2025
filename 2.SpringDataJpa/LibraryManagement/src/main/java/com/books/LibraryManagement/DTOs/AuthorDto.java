@@ -8,5 +8,6 @@ import lombok.Data;
 public class AuthorDto {
 	private long id;
 	private String name;
-	private List<String> books;
+	private boolean deleted;
+	private List<BookDto> books;
 }

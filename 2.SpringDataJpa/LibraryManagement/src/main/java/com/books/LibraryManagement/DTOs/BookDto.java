@@ -3,6 +3,7 @@ package com.books.LibraryManagement.DTOs;
 import java.util.List;
 
 import com.books.LibraryManagement.BookModel.Publisher;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -27,7 +28,8 @@ public class BookDto {
     private String imagePath;
 
     private Long authorId;
-    
+
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<Publisher> publishers;
 
     @NotBlank(message = "Author name is mandatory")

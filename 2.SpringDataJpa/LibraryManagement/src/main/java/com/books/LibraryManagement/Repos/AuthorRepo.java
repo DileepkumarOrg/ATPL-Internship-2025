@@ -8,4 +8,6 @@ import com.books.LibraryManagement.BookModel.Author;
 
 public interface AuthorRepo extends JpaRepository<Author, Long>{
 	Optional<Author> findByName(String name);
+	
+	
 }

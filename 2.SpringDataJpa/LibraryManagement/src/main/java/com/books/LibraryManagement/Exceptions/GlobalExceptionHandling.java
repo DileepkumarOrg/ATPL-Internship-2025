@@ -43,4 +43,14 @@ public class GlobalExceptionHandling {
 		return new ResponseEntity<>(err,HttpStatus.NOT_FOUND);
 	}
 	
+	@ExceptionHandler(NoContent.class)
+	public ResponseEntity<ErrorMessage> noContent(NoContent nc){
+		ErrorMessage err = new ErrorMessage(
+				204,
+				nc.getMessage()
+				);
+		return new ResponseEntity<>(err, HttpStatus.NO_CONTENT);
+	}
+	
+	
 }

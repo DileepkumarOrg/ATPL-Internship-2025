@@ -24,10 +24,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.books.LibraryManagement.BookModel.Author;
 import com.books.LibraryManagement.BookModel.Book;
+import com.books.LibraryManagement.BookModel.Publisher;
 import com.books.LibraryManagement.DTOs.AuthorByIdDto;
 import com.books.LibraryManagement.DTOs.AuthorDto;
 import com.books.LibraryManagement.DTOs.AuthorOptions;
 import com.books.LibraryManagement.DTOs.BookDto;
+import com.books.LibraryManagement.DTOs.PublisherDto;
+import com.books.LibraryManagement.DTOs.PublisherOptions;
 import com.books.LibraryManagement.LibraryService.LibraryService;
 
 import jakarta.validation.Valid;
@@ -65,7 +68,7 @@ public class LibraryController {
 	}
 	
 	@GetMapping("/booksByGenre")
-	public Page<BookDto> booksByGenre(@RequestParam int pageNu, @RequestParam int pageSize){
+	public Page<BookDto> booksByGenre(@RequestParam(defaultValue = "0") int pageNu, @RequestParam(defaultValue = "5") int pageSize){
 		return librarySer.getPageByGenre(pageNu, pageSize);
 	}
 	
@@ -83,7 +86,7 @@ public class LibraryController {
 	}
 
 	@PostMapping("/authors")
-	public Author addAuthor(@RequestBody Author author) {
+	public Author addAuthor(@RequestBody @Valid Author author) {
 		return librarySer.addAuthor(author);
 	}
 	
@@ -118,9 +121,14 @@ public class LibraryController {
 		librarySer.deleteFromMapping(id);
 	}
 	
-	@GetMapping("/publisher/{id}")
+	@GetMapping("/activatePublisher/{id}")
 	public void activatePublisherById(@PathVariable long id) {
 		librarySer.activateFromMapping(id);
+	}
+	
+	@GetMapping("/publisher/{id}")
+	public PublisherDto getPublisherById(@PathVariable long id) {
+		return librarySer.getPublisher(id);
 	}
 	
 	@GetMapping("/view/{fileName}")
@@ -137,5 +145,10 @@ public class LibraryController {
 	@GetMapping("/authorOptions")
 	public List<AuthorOptions> getAllAuthorsoptions(){
 		return librarySer.getAllAuthorsoptions();
+	}
+	
+	@GetMapping("/publisherOptions")
+	public List<PublisherOptions> getAllPublisherOptions(){
+		return librarySer.getAllPublisherOptions();
 	}
 }
