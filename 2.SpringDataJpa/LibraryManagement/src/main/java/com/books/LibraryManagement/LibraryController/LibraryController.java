@@ -37,6 +37,13 @@ import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.media.*;
+
+@Tag(name = "Library Controller", description = "Library management APIs")
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/")
@@ -46,6 +53,8 @@ public class LibraryController {
     private String uploadDir;
 	public final LibraryService librarySer;
 	
+	@Operation(summary = "Get all books", description ="Retreives list of books")
+	@ApiResponse(responseCode = "200", description = "Books fetched successfully", content = @io.swagger.v3.oas.annotations.media.Content(mediaType = "application/json"))
 	@GetMapping("/books")
 	public List<BookDto> getBooks(){
 		return librarySer.getAllBooks();
@@ -77,8 +86,14 @@ public class LibraryController {
 //		return librarySer.addBook(book, file);
 //	}
 	
+	@Operation(summary = "Add new book with image")
 	@PostMapping(path = "/books", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
 	public BookDto addBook(
+			@Parameter(
+			        description = "Book details",
+			        content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+			        schema = @Schema(implementation = BookDto.class))
+			    )
 	    @RequestPart("book") @Valid BookDto book, // Changed from @RequestBody to @RequestPart
 	    @RequestPart("file") MultipartFile file   // Changed from @RequestParam to @RequestPart (cleaner)
 	) {
@@ -95,11 +110,20 @@ public class LibraryController {
 //		return librarySer.updateBook(book);
 //	}
 	
-	@PutMapping(path = "/books", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-	public BookDto updateBook(@RequestPart("book") @Valid BookDto book, 
-		    @RequestPart(value = "file", required = false) MultipartFile file  ) {
-		return librarySer.updateBook(book, file);
+	@Operation(summary = "Update book")
+	@PutMapping(path = "/books", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public BookDto updateBook(
+			@Parameter(
+			        description = "Book details",
+			        content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+			        schema = @Schema(implementation = BookDto.class))
+			    )
+	        @RequestPart("book") @Valid BookDto book,
+	        @RequestPart(value = "file", required = false) MultipartFile file) {
+
+	    return librarySer.updateBook(book, file);
 	}
+
 
 	@PutMapping("/authors")
 	public Author updateAuthor(@RequestBody Author author) {

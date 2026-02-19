@@ -2,9 +2,12 @@ package com.books.LibraryManagement.DTOs;
 
 import java.util.List;
 
+import org.springframework.boot.jdbc.SchemaManagement;
+
 import com.books.LibraryManagement.BookModel.Publisher;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -19,6 +22,7 @@ public class BookDto {
 
     @NotBlank(message = "Title is mandatory")
     @Size(min = 2, max = 100, message = "Title must be between 2 and 100 characters")
+    @Schema(description = "Book Title", requiredMode = Schema.RequiredMode.REQUIRED)
     private String title;
 
     @NotBlank(message = "Genre is mandatory")

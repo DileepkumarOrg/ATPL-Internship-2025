@@ -4,13 +4,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.modelmapper.ModelMapper;
@@ -28,7 +26,6 @@ import com.books.LibraryManagement.DTOs.BookDto;
 import com.books.LibraryManagement.DTOs.PublisherDto;
 import com.books.LibraryManagement.DTOs.PublisherOptions;
 import com.books.LibraryManagement.Exceptions.ErrorMessagePass;
-import com.books.LibraryManagement.Exceptions.NoContent;
 import com.books.LibraryManagement.Exceptions.NotFound;
 import com.books.LibraryManagement.Repos.AuthorRepo;
 import com.books.LibraryManagement.Repos.BookRepo;
@@ -201,8 +198,7 @@ public class LibraryService {
 	@Transactional
 	public BookDto updateBook(BookDto bookDto, MultipartFile file) {
         
-        
-	    Author author = authRepo.findById(bookDto.getAuthorId())
+		Author author = authRepo.findById(bookDto.getAuthorId())
 	            .orElseThrow(() ->
 	                    new NotFound("Author not found with id: " + bookDto.getAuthorId())
 	            );
@@ -225,8 +221,6 @@ public class LibraryService {
 	    book.setGenre(bookDto.getGenre());
 	    book.setAuthor(author);
 	    book.setPublishers(publishers);
-	    
-	    
 	    
 	   if( file != null && !file.isEmpty()) {
 		   String fileName =
@@ -326,7 +320,7 @@ public class LibraryService {
 	}
 
 	public PublisherDto getPublisher(long id) {
-		PublisherDto publisher = modelMapper.map(pubRep.getById(id), PublisherDto.class);
+		PublisherDto publisher = modelMapper.map(pubRep.findById(id), PublisherDto.class);
 		publisher.getBooks().forEach(book -> book.setPublishers(null));
 		return publisher;
 	}
